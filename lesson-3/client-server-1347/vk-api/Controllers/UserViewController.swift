@@ -11,6 +11,7 @@ class UserProfileViewController: UIViewController {
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
     
     let userApi = UserAPI()
     var user : String? = nil
@@ -30,6 +31,7 @@ class UserProfileViewController: UIViewController {
             userApi.getUserInfo {user in
                 self.user = user
                 self.nameLabel?.text = "\(user)"
+                self.idLabel?.text = "\(user)"
             }
         }
     }

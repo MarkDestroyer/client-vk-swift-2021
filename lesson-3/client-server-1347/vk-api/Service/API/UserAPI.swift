@@ -75,8 +75,11 @@ final class UserAPI {
             
             user = user! + " "
             
-            user = user! + (JSON(data).dictionary!["response"]!.array?[0].dictionary!["last_name"]!.string!)!
+            user = user! + (JSON(data).dictionary!["response"]!.array?[0].dictionary!["last_name"]!.string!)! + " " + "ID: " +  (JSON(data).dictionary!["response"]!.array?[0].dictionary!["id"]!.string!)!
             completion(user!)
+            
+    
+            
             
         }
     }

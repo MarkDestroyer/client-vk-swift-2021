@@ -13,7 +13,7 @@ class UserProfileViewController: UIViewController {
     @IBOutlet var nameLabel: UILabel!
     
     let userApi = UserAPI()
-    var user : UserProfile? = nil
+    var user : String? = nil
         
     
     override func viewDidLoad() {
@@ -21,17 +21,16 @@ class UserProfileViewController: UIViewController {
         let url = URL(string: "https://sun9-73.userapi.com/impg/Bk3AB70wnbEkrRo6W5eFKlAM3aMJ9QdqFcJjng/JEa5xTjc3aI.jpg?size=1620x2160&quality=96&sign=73c52aa02b488f595af638c784a95b14&type=album")!
        
         
-        // Fetch Image Data
+        
         if let data = try? Data(contentsOf: url) {
-            // Create Image and Update Image View
+           
             imageView.image = UIImage(data: data)
+            
             
             userApi.getUserInfo {user in
                 self.user = user
-                self.nameLabel?.text = "\(user.firstName ?? "ничего не найдено")"
-
+                self.nameLabel?.text = "\(user)"
             }
         }
-        
     }
 }

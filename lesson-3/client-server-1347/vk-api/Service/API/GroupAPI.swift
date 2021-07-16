@@ -1,4 +1,3 @@
-//
 //  GroupAPI.swift
 //  client-server-1347
 //

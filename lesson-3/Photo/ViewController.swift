@@ -20,7 +20,7 @@ class PhotoViewController: UIViewController {
       super.viewDidLoad()
       // Do any additional setup after loading the view.
       
-      networker.posts(query: "puppies") { [weak self] posts, error in
+      networker.posts(query: "sun") { [weak self] posts, error in
         if let error = error {
           print("error", error)
           return

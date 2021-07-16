@@ -33,6 +33,8 @@ class PhotoVK: Codable {
         case ownerID = "owner_id"
         case sizes, text, date
         case likes, reposts
+        
+        
     }
 }
 

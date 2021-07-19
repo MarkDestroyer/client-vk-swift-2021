@@ -13,35 +13,10 @@ class UserProfile {
 
     let firstName: String?
 
-    init(json: JSON) {
-        self.firstName = json.dictionary?["response"]?.string //json["first_name"] as! String
+    init(json: [String: Any]) {
+        self.firstName = json["first_name"] as! String
     }
 }
-
-struct UserResponse2: Codable {
-    let response: [Response55]
-}
-
-// MARK: - Response
-struct Response55: Codable {
-    let id: Int
-    let firstName, lastName: String
-    let isClosed, canAccessClosed: Bool
-    let photo50: String
-    let verified: Int
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case firstName = "first_name"
-        case lastName = "last_name"
-        case isClosed = "is_closed"
-        case canAccessClosed = "can_access_closed"
-        case photo50 = "photo_50"
-        case verified
-    }
-}
-
-
 
 
 final class UserAPI {
@@ -52,7 +27,7 @@ final class UserAPI {
     let version = "5.31"
     
     //DynamicJSON
-    func getUserInfo(completion: @escaping(String)->()) {
+    func getUserInfo(completion: @escaping(UserProfile)->()) {
         
         let method = "/users.get"
         

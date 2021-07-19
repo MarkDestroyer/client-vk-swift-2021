@@ -14,7 +14,7 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var idLabel: UILabel!
     
     let userApi = UserAPI()
-    var user : String? = nil
+    var user  = UserProfile(json: ["first_name" : String()])
         
     
     override func viewDidLoad() {
@@ -27,11 +27,11 @@ class UserProfileViewController: UIViewController {
            
             imageView.image = UIImage(data: data)
             
+            let user2: UserProfile = user
             
-            userApi.getUserInfo {user in
-                self.user = user
-                self.nameLabel?.text = "\(user)"
-                self.idLabel?.text = "\(user)"
+            userApi.getUserInfo {[weak self] user in guard let self = self else { return }
+                self.user =  "\(String(user2.firstname!)) "
+                
             }
         }
     }

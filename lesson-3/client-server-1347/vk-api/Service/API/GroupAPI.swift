@@ -12,9 +12,9 @@ class GroupProfile {
     let id: Int?
     let screenName: String?
     
-    init(json: JSON) {
-        self.id = json.number?.intValue
-        self.screenName = json.screen_name.string
+    init(json:[String: Any]) {
+        self.id = json["id"] as! Int
+        self.screenName = json["screenName"] as! String
     }
 }
 

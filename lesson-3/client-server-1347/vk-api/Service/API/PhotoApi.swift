@@ -34,7 +34,7 @@ final class PhotoAPI {
     let version = "5.21"
     
     //DynamicJSON
-    func getPhotoInfo(completion: @escaping([UserProfile])->()) {
+    func getPhotoInfo(completion: @escaping([PhotoProfile])->()) {
         
         let method = "/users.get"
         
@@ -53,7 +53,7 @@ final class PhotoAPI {
             
             guard let items = JSON(data).response.items.array else { return }
             
-            let user = items.map { UserProfile(json: $0)}
+            let user = items.map { PhotoProfile(json: $0)}
             
             completion(user)
             

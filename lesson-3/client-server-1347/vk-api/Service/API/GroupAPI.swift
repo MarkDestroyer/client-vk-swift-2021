@@ -8,17 +8,7 @@ import Foundation
 import Alamofire
 import DynamicJSON
 
-class GroupProfile {
-    var groupId: Int = 0
-    var name: String = ""
-    var photo: String = ""
-    
-    init(json:JSON) {
-        groupId = json.id.int ?? 0
-        name = json.name.string ?? ""
-        photo = json.photos.array?.first!.photo_50.string ?? ""
-    }
-}
+
 
 final class GroupAPI {
     
@@ -33,13 +23,12 @@ final class GroupAPI {
         let method = "/groups.get"
         
         let parameters: Parameters = [
-            "user_id": cliendId,
+            "access_token": Session.shared.token,
+            "group_id": cliendId,
             "extended": "1",
-            "filter": "groups",
-            "fields": "photo_100",
+            "fields": "photo_50",
             "count": "20",
             "v": version,
-            "access_token": Session.shared.token,
         ]
        
         

@@ -9,25 +9,6 @@ import Foundation
 import Alamofire
 import DynamicJSON
 
-struct User3 {
-    
-    var id: Int = 0
-    var lastName: String = ""
-    var photo50: String = ""
-    var firstName: String = ""
-    var photo: String = ""
-    
-    
-    init(json: JSON) {
-        self.id = json.id.int ?? 0 //json["id"] as! Int
-        self.firstName = json.first_name.string ?? "" //json["first_name"] as! String
-        self.lastName = json.last_name.string ?? "" //json["last_name"] as! String
-        self.photo = json.photos.array?.first!.photo_50.string ?? ""
-    }
-}
-
-
-
 final class FriendsAPI {
     
     let baseUrl = "https://api.vk.com/method"
@@ -41,7 +22,7 @@ final class FriendsAPI {
         let method = "/friends.get"
         
         let parameters: Parameters = [
-            "access_token": Session.shared.token,
+            "access_token": token,
             "order": "hints",
             "fields": "photo_50",
             "v": version,

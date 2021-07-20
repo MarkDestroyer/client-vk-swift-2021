@@ -25,6 +25,7 @@ class FriendsViewController: UITableViewController {
             self.friends = users
             self.tableView.reloadData()
             print(users)
+            
         }
   
     }
@@ -42,6 +43,18 @@ class FriendsViewController: UITableViewController {
         let friend: User3 = friends[indexPath.row]
         
         cell.textLabel?.text = "\(friend.firstName) \(friend.lastName)"
+        
+        DispatchQueue.global().async {
+            guard let url = URL(string: friend.photo_50) else {return}
+            if let data = try? Data(contentsOf: url) {
+                DispatchQueue.main.async {
+                    cell.imageView!.image = UIImage(data: data)
+                }
+                
+              
+            }
+        }
+        
         
         return cell
     }

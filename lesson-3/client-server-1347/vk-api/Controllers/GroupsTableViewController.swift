@@ -11,7 +11,7 @@ class GroupsViewController: UITableViewController {
 
     let groupAPI = GroupAPI()
     
-    var friends: [GroupProfile] = []
+    var groups: [GroupProfile] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class GroupsViewController: UITableViewController {
             
             guard let self = self else { return }
             
-            self.friends = users
+            self.groups = users
             self.tableView.reloadData()
             print(users)
         }
@@ -32,17 +32,29 @@ class GroupsViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends.count
+        return groups.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let group: GroupProfile = friends[indexPath.row]
+        let group: GroupProfile = groups[indexPath.row]
         
         cell.textLabel?.text = "\(group.name)"
         
+        
+        DispatchQueue.global().async {
+            guard let url = URL(string: group.photo_50) else {return}
+            if let data = try? Data(contentsOf: url) {
+                DispatchQueue.main.async {
+                    cell.imageView!.image = UIImage(data: data)
+                }
+                
+              
+            }
+        }
+
         return cell
     }
 }

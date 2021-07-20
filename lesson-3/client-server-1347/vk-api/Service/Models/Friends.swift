@@ -6,36 +6,22 @@
 //
 
 import Foundation
+import Alamofire
+import DynamicJSON
 
-// MARK: - Photo
-class Photo: Codable {
-    let response: PhotoResponse
-}
+struct User3 {
+    
+    var id: Int = 0
+    var lastName: String = ""
+    var photo_50: String = ""
+    var firstName: String = ""
 
-// MARK: - Response
-class PhotoResponse: Codable {
-    let count: Int
-    let items: [UserVK]
-}
-
-// MARK: - Item
-struct UserVK: Codable {
-    let id: Int
-    let firstName, lastName: String
-    var fullname: String { return firstName + " " + lastName }
-    let isClosed, canAccessClosed: Bool?
-    let photo50: String
-    let online: Int
-    let deactivated: String?
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case firstName = "first_name"
-        case lastName = "last_name"
-        case isClosed = "is_closed"
-        case canAccessClosed = "can_access_closed"
-        case photo50 = "photo_50"
-        case online
-        case deactivated
+    
+    
+    init(json: JSON) {
+        self.id = json.id.int ?? 0 //json["id"] as! Int
+        self.firstName = json.first_name.string ?? "" //json["first_name"] as! String
+        self.lastName = json.last_name.string ?? "" //json["last_name"] as! String
+        self.photo_50 = json.photo_50.string ?? ""
     }
 }

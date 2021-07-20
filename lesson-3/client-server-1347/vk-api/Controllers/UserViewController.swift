@@ -27,7 +27,7 @@ class UserProfileViewController: UIViewController {
             
             
             DispatchQueue.global().async {
-                guard let url = URL(string: user.photo) else {return}
+                guard let url = URL(string: user.photo_50) else {return}
                 if let data = try? Data(contentsOf: url) {
                     DispatchQueue.main.async {
                         self.imageView.image = UIImage(data: data)

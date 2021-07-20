@@ -6,32 +6,20 @@
 //
 
 import Foundation
+import Alamofire
+import DynamicJSON
 
-// MARK: - Friends
-struct User: Codable {
-    let response: UserResponse
-}
-
-// MARK: - Response
-struct UserResponse: Codable {
-    let count: Int
-    let items: [User1]
-}
-
-// MARK: - Item
-struct User1: Codable {
-    let id: Int
-    let lastName: String
-    let photo50: String
-    let trackCode, firstName: String
-    let photo100: String
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case lastName = "last_name"
-        case photo50 = "photo_50"
-        case trackCode = "track_code"
-        case firstName = "first_name"
-        case photo100 = "photo_100"
+struct Profile {
+    
+    var id: Int = 0
+    var lastName: String = ""
+    var firstName: String = ""
+    var photo_50: String = ""
+    
+    init(json: JSON) {
+        self.id = json.id.int ?? 0 //json["id"] as! Int
+        self.firstName = json.first_name.string ?? "" //json["first_name"] as! String
+        self.lastName = json.last_name.string ?? ""  //json["last_name"] as! String
+        self.photo_50 = json.photo_50.string ?? ""
     }
 }

@@ -9,12 +9,19 @@ import Foundation
 import Alamofire
 import DynamicJSON
 
-class UserProfile {
-
-    let firstName: String?
-
-    init(json: [String: Any]) {
-        self.firstName = json["first_name"] as! String
+struct Profile {
+    
+    var id: Int = 0
+    var lastName: String = ""
+    var photo50: String = ""
+    var firstName: String = ""
+    var photo: String = ""
+    
+    init(json: JSON) {
+        self.id = json.id.int ?? 0 //json["id"] as! Int
+        self.firstName = json.first_name.string ?? "" //json["first_name"] as! String
+        self.lastName = json.last_name.string ?? ""  //json["last_name"] as! String
+        self.photo = json.photo_50.string ?? ""
     }
 }
 
@@ -27,14 +34,15 @@ final class UserAPI {
     let version = "5.31"
     
     //DynamicJSON
-    func getUserInfo(completion: @escaping(UserProfile)->()) {
+    func getUserInfo(completion: @escaping(Profile)->()) {
         
         let method = "/users.get"
         
         let parameters: Parameters = [
             "access_token": Session.shared.token,
             "user_id": cliendId,
-            "fields": "first_name, last_name",
+            "extended": "1",
+            "fields": "first_name, last_name, photo_50 ",
             "v": version]
         
         let url = baseUrl + method
@@ -45,16 +53,11 @@ final class UserAPI {
             guard let data = response.data else { return }
             print(data.prettyJSON as Any)
 
-            var user = JSON(data).dictionary!["response"]!.array?[0]
-                .dictionary!["first_name"]!.string!
+            guard let items = JSON(data).response.array else { return }
+            let profile = items.map { Profile(json: $0)}
             
-            user = user! + " "
-            
-            user = user! + (JSON(data).dictionary!["response"]!.array?[0].dictionary!["last_name"]!.string!)! + " " + "ID пользователя: " +  (JSON(data).dictionary!["response"]!.array?[0].dictionary!["id"]!.string!)!
-            completion(user!)
-            
-    
-            
+            guard let firstUser = profile.first else {return}
+            completion(firstUser)
             
         }
     }

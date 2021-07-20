@@ -1,31 +1,30 @@
 //
-//  File.swift
+//  GroupsTableViewController.swift
 //  client-server-1347
 //
-//  Created by Марк Киричко on 14.07.2021.
+//  Created by Марк Киричко on 20.07.2021.
 //
 
 import UIKit
 
-class GroupViewController: UITableViewController {
+class GroupsViewController: UITableViewController {
 
-    let groupApi = GroupAPI()
+    let groupAPI = GroupAPI()
     
-    var group: [GroupProfile] = []
+    var friends: [GroupProfile] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
 
-        groupApi.getGroupInfo(groupId: "30022666")  {
-            [weak self] group in guard let self = self else { return }
+        groupAPI.getGroupInfo  { [weak self] users in
             
-            self.group = group
+            guard let self = self else { return }
+            
+            self.friends = users
             self.tableView.reloadData()
-            print(group)
-        
-            
+            print(users)
         }
   
     }
@@ -33,17 +32,17 @@ class GroupViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return group.count
+        return friends.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let group: GroupProfile = group[indexPath.row]
+        let group: GroupProfile = friends[indexPath.row]
         
-        cell.textLabel?.text = "\(String(group.id!)) "
-                
+        cell.textLabel?.text = "\(group.name)"
+        
         return cell
     }
 }

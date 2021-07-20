@@ -9,24 +9,26 @@ import Foundation
 import Alamofire
 import DynamicJSON
 
-class PhotoProfile {
+struct User3 {
     
-    let id: Int?
-    let firstName, lastName: String?
-    let photo100: String?
+    var id: Int = 0
+    var lastName: String = ""
+    var photo50: String = ""
+    var firstName: String = ""
+    var photo: String = ""
     
     
     init(json: JSON) {
-        self.id = json.id.int //json["id"] as! Int
-        self.firstName = json.first_name.string //json["first_name"] as! String
-        self.lastName = json.last_name.string //json["last_name"] as! String
-        self.photo100 = json.photo100.string
+        self.id = json.id.int ?? 0 //json["id"] as! Int
+        self.firstName = json.first_name.string ?? "" //json["first_name"] as! String
+        self.lastName = json.last_name.string ?? "" //json["last_name"] as! String
+        self.photo = json.photos.array?.first!.photo_50.string ?? ""
     }
 }
 
 
 
-final class PhotoAPI {
+final class FriendsAPI {
     
     let baseUrl = "https://api.vk.com/method"
     let token = Session.shared.token
@@ -34,30 +36,29 @@ final class PhotoAPI {
     let version = "5.21"
     
     //DynamicJSON
-    func getPhotoInfo(completion: @escaping([PhotoProfile])->()) {
+    func getFriends3(completion: @escaping([User3])->()) {
         
-        let method = "/users.get"
+        let method = "/friends.get"
         
         let parameters: Parameters = [
             "access_token": Session.shared.token,
-            "user_id": cliendId,
-            "fields": "status,city,career,counters,has_photo,crop_photo,last_seen,online",
-            "v": version]
+            "order": "hints",
+            "fields": "photo_50",
+            "v": version,
+            "user_id": cliendId]
         
         let url = baseUrl + method
         
         AF.request(url, method: .get, parameters: parameters).responseData { response in
-            
+
             guard let data = response.data else { return }
             print(data.prettyJSON as Any)
-            
+
             guard let items = JSON(data).response.items.array else { return }
             
-            let user = items.map { PhotoProfile(json: $0)}
-            
-            completion(user)
+            let friends = items.map { User3(json: $0)}
+            completion(friends)
             
         }
     }
 }
-

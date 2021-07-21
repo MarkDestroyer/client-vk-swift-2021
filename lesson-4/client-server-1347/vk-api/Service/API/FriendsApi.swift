@@ -1,4 +1,5 @@
-//  GroupAPI.swift
+//
+//  PhotoApi.swift
 //  client-server-1347
 //
 //  Created by Марк Киричко on 14.07.2021.
@@ -8,9 +9,7 @@ import Foundation
 import Alamofire
 import DynamicJSON
 
-
-
-final class GroupAPI {
+final class FriendsAPI {
     
     let baseUrl = "https://api.vk.com/method"
     let token = Session.shared.token
@@ -18,35 +17,29 @@ final class GroupAPI {
     let version = "5.21"
     
     //DynamicJSON
-    func getGroupInfo(completion: @escaping([GroupProfile])->()) {
+    func getFriends3(completion: @escaping([User3])->()) {
         
-        let method = "/groups.get"
+        let method = "/friends.get"
         
         let parameters: Parameters = [
-            "access_token": Session.shared.token,
-            "group_id": cliendId,
-            "extended": "1",
+            "access_token": token,
+            "order": "hints",
             "fields": "photo_50",
-            "count": "45",
             "v": version,
-        ]
-       
-        
+            "user_id": cliendId]
         
         let url = baseUrl + method
         
         AF.request(url, method: .get, parameters: parameters).responseData { response in
-            
+
             guard let data = response.data else { return }
             print(data.prettyJSON as Any)
-            
+
             guard let items = JSON(data).response.items.array else { return }
             
-           let group = items.map { GroupProfile(json: $0)}
-            
-           completion(group)
+            let friends = items.map { User3(json: $0)}
+            completion(friends)
             
         }
     }
 }
-

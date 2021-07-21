@@ -18,21 +18,23 @@
 		1273D174269CB611003F2E68 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273D173269CB611003F2E68 /* UserAPI.swift */; };
 		1273D177269CB9C6003F2E68 /* Data+PrettyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273D176269CB9C6003F2E68 /* Data+PrettyJSON.swift */; };
 		1273D17A269CBD36003F2E68 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273D179269CBD36003F2E68 /* User.swift */; };
-		822D224B26A6C25D008F205E /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D224A26A6C25D008F205E /* FriendsTableViewCell.swift */; };
-		823F444626A0A76000ECB2A7 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823F444526A0A76000ECB2A7 /* AvatarView.swift */; };
-		828D504C26A63AAA00408176 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828D504B26A63AAA00408176 /* GroupTableViewCell.swift */; };
 		828D504E26A648E900408176 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828D504D26A648E900408176 /* FriendsTableViewController.swift */; };
 		828D505026A6560B00408176 /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828D504F26A6560B00408176 /* GroupsTableViewController.swift */; };
 		829A90F8269F4FA5000EC8CA /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829A90F7269F4FA5000EC8CA /* Friends.swift */; };
 		829A90FA269F50AD000EC8CA /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829A90F9269F50AD000EC8CA /* Group.swift */; };
 		829A90FD269F5594000EC8CA /* FriendsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829A90FC269F5594000EC8CA /* FriendsApi.swift */; };
 		829A90FF269F5C08000EC8CA /* GroupAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829A90FE269F5C08000EC8CA /* GroupAPI.swift */; };
+		82E9722826A8978A0009F024 /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9722726A8978A0009F024 /* Wall.swift */; };
+		82E9722A26A8984E0009F024 /* WallApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9722926A8984E0009F024 /* WallApi.swift */; };
+		82E9722C26A898ED0009F024 /* WallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9722B26A898ED0009F024 /* WallViewController.swift */; };
+		82E9722F26A89F940009F024 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9722E26A89F940009F024 /* FriendsTableViewCell.swift */; };
+		82E9723126A8A7210009F024 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9723026A8A7210009F024 /* GroupsTableViewCell.swift */; };
 		82ED1E4E26A0D0E500E579E6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED1E4D26A0D0E500E579E6 /* MenuViewController.swift */; };
 		9D2C9C3BDBC45385EF436568 /* Pods_client_server_1347.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58E1546E2D50E8EC5987BE42 /* Pods_client_server_1347.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1273D0FF269377CC003F2E68 /* client-server-1347.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "client-server-1347.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1273D0FF269377CC003F2E68 /* iMessanger X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iMessanger X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1273D102269377CC003F2E68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1273D104269377CC003F2E68 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1273D109269377CC003F2E68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,15 +48,17 @@
 		1273D176269CB9C6003F2E68 /* Data+PrettyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+PrettyJSON.swift"; sourceTree = "<group>"; };
 		1273D179269CBD36003F2E68 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		58E1546E2D50E8EC5987BE42 /* Pods_client_server_1347.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_client_server_1347.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		822D224A26A6C25D008F205E /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
-		823F444526A0A76000ECB2A7 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
-		828D504B26A63AAA00408176 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		828D504D26A648E900408176 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		828D504F26A6560B00408176 /* GroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
 		829A90F7269F4FA5000EC8CA /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		829A90F9269F50AD000EC8CA /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		829A90FC269F5594000EC8CA /* FriendsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsApi.swift; sourceTree = "<group>"; };
 		829A90FE269F5C08000EC8CA /* GroupAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAPI.swift; sourceTree = "<group>"; };
+		82E9722726A8978A0009F024 /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
+		82E9722926A8984E0009F024 /* WallApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallApi.swift; sourceTree = "<group>"; };
+		82E9722B26A898ED0009F024 /* WallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallViewController.swift; sourceTree = "<group>"; };
+		82E9722E26A89F940009F024 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
+		82E9723026A8A7210009F024 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		82ED1E4D26A0D0E500E579E6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		9B7FC1601F03876A9113DA17 /* Pods-client-server-1347.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-client-server-1347.debug.xcconfig"; path = "Target Support Files/Pods-client-server-1347/Pods-client-server-1347.debug.xcconfig"; sourceTree = "<group>"; };
 		E8A19F3CBAFFFD86301BFF24 /* Pods-client-server-1347.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-client-server-1347.release.xcconfig"; path = "Target Support Files/Pods-client-server-1347/Pods-client-server-1347.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,8 +79,7 @@
 		1273D0F6269377CC003F2E68 = {
 			isa = PBXGroup;
 			children = (
-				828D504A26A63A6600408176 /* Cells */,
-				823F444426A0A6FC00ECB2A7 /* Design */,
+				82E9722D26A89F7A0009F024 /* Cells */,
 				1273D101269377CC003F2E68 /* client-server-1347 */,
 				1273D100269377CC003F2E68 /* Products */,
 				3AED7FCABD768D45107A55F8 /* Pods */,
@@ -87,7 +90,7 @@
 		1273D100269377CC003F2E68 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1273D0FF269377CC003F2E68 /* client-server-1347.app */,
+				1273D0FF269377CC003F2E68 /* iMessanger X.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 				1273D179269CBD36003F2E68 /* User.swift */,
 				829A90F7269F4FA5000EC8CA /* Friends.swift */,
 				829A90F9269F50AD000EC8CA /* Group.swift */,
+				82E9722726A8978A0009F024 /* Wall.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,29 +173,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		823F444426A0A6FC00ECB2A7 /* Design */ = {
-			isa = PBXGroup;
-			children = (
-				823F444526A0A76000ECB2A7 /* AvatarView.swift */,
-			);
-			path = Design;
-			sourceTree = "<group>";
-		};
-		828D504A26A63A6600408176 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				828D504B26A63AAA00408176 /* GroupTableViewCell.swift */,
-				822D224A26A6C25D008F205E /* FriendsTableViewCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
 		829A90FB269F5243000EC8CA /* API */ = {
 			isa = PBXGroup;
 			children = (
 				1273D173269CB611003F2E68 /* UserAPI.swift */,
 				829A90FC269F5594000EC8CA /* FriendsApi.swift */,
 				829A90FE269F5C08000EC8CA /* GroupAPI.swift */,
+				82E9722926A8984E0009F024 /* WallApi.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -204,8 +192,18 @@
 				828D504D26A648E900408176 /* FriendsTableViewController.swift */,
 				828D504F26A6560B00408176 /* GroupsTableViewController.swift */,
 				82ED1E4D26A0D0E500E579E6 /* MenuViewController.swift */,
+				82E9722B26A898ED0009F024 /* WallViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		82E9722D26A89F7A0009F024 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				82E9722E26A89F940009F024 /* FriendsTableViewCell.swift */,
+				82E9723026A8A7210009F024 /* GroupsTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		82FBCD53269F60A100F61BF4 /* Session */ = {
@@ -219,9 +217,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1273D0FE269377CC003F2E68 /* client-server-1347 */ = {
+		1273D0FE269377CC003F2E68 /* iMessanger X */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1273D113269377CE003F2E68 /* Build configuration list for PBXNativeTarget "client-server-1347" */;
+			buildConfigurationList = 1273D113269377CE003F2E68 /* Build configuration list for PBXNativeTarget "iMessanger X" */;
 			buildPhases = (
 				42CA7C3B8548F17A7C47BD04 /* [CP] Check Pods Manifest.lock */,
 				1273D0FB269377CC003F2E68 /* Sources */,
@@ -233,9 +231,9 @@
 			);
 			dependencies = (
 			);
-			name = "client-server-1347";
+			name = "iMessanger X";
 			productName = "client-server-1347";
-			productReference = 1273D0FF269377CC003F2E68 /* client-server-1347.app */;
+			productReference = 1273D0FF269377CC003F2E68 /* iMessanger X.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -252,7 +250,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1273D0FA269377CC003F2E68 /* Build configuration list for PBXProject "client-server-1347" */;
+			buildConfigurationList = 1273D0FA269377CC003F2E68 /* Build configuration list for PBXProject "iMessanger X" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -265,7 +263,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1273D0FE269377CC003F2E68 /* client-server-1347 */,
+				1273D0FE269377CC003F2E68 /* iMessanger X */,
 			);
 		};
 /* End PBXProject section */
@@ -330,22 +328,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82E9722C26A898ED0009F024 /* WallViewController.swift in Sources */,
 				1273D177269CB9C6003F2E68 /* Data+PrettyJSON.swift in Sources */,
 				1273D15D26977D1C003F2E68 /* AuthViewController.swift in Sources */,
+				82E9722F26A89F940009F024 /* FriendsTableViewCell.swift in Sources */,
 				829A90FF269F5C08000EC8CA /* GroupAPI.swift in Sources */,
 				1273D103269377CC003F2E68 /* AppDelegate.swift in Sources */,
 				1273D16F269CB4C3003F2E68 /* UserViewController.swift in Sources */,
-				828D504C26A63AAA00408176 /* GroupTableViewCell.swift in Sources */,
+				82E9722826A8978A0009F024 /* Wall.swift in Sources */,
 				1273D17A269CBD36003F2E68 /* User.swift in Sources */,
 				1273D174269CB611003F2E68 /* UserAPI.swift in Sources */,
+				82E9723126A8A7210009F024 /* GroupsTableViewCell.swift in Sources */,
 				829A90FA269F50AD000EC8CA /* Group.swift in Sources */,
-				822D224B26A6C25D008F205E /* FriendsTableViewCell.swift in Sources */,
 				828D505026A6560B00408176 /* GroupsTableViewController.swift in Sources */,
 				1273D105269377CC003F2E68 /* SceneDelegate.swift in Sources */,
 				829A90F8269F4FA5000EC8CA /* Friends.swift in Sources */,
+				82E9722A26A8984E0009F024 /* WallApi.swift in Sources */,
 				1273D172269CB5E3003F2E68 /* Session.swift in Sources */,
 				828D504E26A648E900408176 /* FriendsTableViewController.swift in Sources */,
-				823F444626A0A76000ECB2A7 /* AvatarView.swift in Sources */,
 				829A90FD269F5594000EC8CA /* FriendsApi.swift in Sources */,
 				82ED1E4E26A0D0E500E579E6 /* MenuViewController.swift in Sources */,
 			);
@@ -495,8 +495,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 77XX2PXRV7;
+				DEVELOPMENT_TEAM = 265GKHT32M;
 				INFOPLIST_FILE = "client-server-1347/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -504,6 +505,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gb.client-server-1347";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -516,7 +518,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 77XX2PXRV7;
+				DEVELOPMENT_TEAM = 265GKHT32M;
 				INFOPLIST_FILE = "client-server-1347/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -532,7 +534,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1273D0FA269377CC003F2E68 /* Build configuration list for PBXProject "client-server-1347" */ = {
+		1273D0FA269377CC003F2E68 /* Build configuration list for PBXProject "iMessanger X" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1273D111269377CE003F2E68 /* Debug */,
@@ -541,7 +543,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1273D113269377CE003F2E68 /* Build configuration list for PBXNativeTarget "client-server-1347" */ = {
+		1273D113269377CE003F2E68 /* Build configuration list for PBXNativeTarget "iMessanger X" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1273D114269377CE003F2E68 /* Debug */,

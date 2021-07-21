@@ -31,9 +31,9 @@ class UserProfileViewController: UIViewController {
                 if let data = try? Data(contentsOf: url) {
                     DispatchQueue.main.async {
                         self.imageView.image = UIImage(data: data)
+                        self.imageView.layer.cornerRadius = 100;
+                        self.imageView.clipsToBounds = true
                     }
-                    
-                  
                 }
             }
         }

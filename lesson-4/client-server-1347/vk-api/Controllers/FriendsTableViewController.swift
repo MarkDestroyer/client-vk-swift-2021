@@ -16,7 +16,7 @@ class FriendsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        // tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
 
         friendsAPI.getFriends3  { [weak self] users in
             
@@ -37,25 +37,17 @@ class FriendsViewController: UITableViewController {
     }
 
     
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: FriendsTableViewCell.identifier, for: indexPath) as! FriendsTableViewCell
 
-        let friend: User3 = friends[indexPath.row]
+      
         
-        cell.textLabel?.text = "\(friend.firstName) \(friend.lastName)"
-        
-        DispatchQueue.global().async {
-            guard let url = URL(string: friend.photo_50) else {return}
-            if let data = try? Data(contentsOf: url) {
-                DispatchQueue.main.async {
-                    cell.imageView!.image = UIImage(data: data)
-                }
-                
-              
-            }
-        }
+        cell.configure(friends[indexPath.row])
         
         
+
         return cell
     }
 }

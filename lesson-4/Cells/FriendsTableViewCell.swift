@@ -2,28 +2,33 @@
 //  FriendsTableViewCell.swift
 //  client-server-1347
 //
-//  Created by Марк Киричко on 20.07.2021.
+//  Created by Марк Киричко on 21.07.2021.
 //
+
 import UIKit
 
 final class FriendsTableViewCell: UITableViewCell {
     
     static let identifier = "FriendsTableViewCell"
     
-    @IBOutlet weak var Friendsname: UILabel!
+    @IBOutlet  weak var FriendImage: UIImageView!
+    @IBOutlet  weak var nameLabel: UILabel!
     
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var cellView: UIView!
+    
+    
+    func configure(_ friend: User3)  {
+        nameLabel?.text = "\(friend.firstName) \(friend.lastName)"
+        
+        
+        DispatchQueue.global().async {
+            guard let url = URL(string: friend.photo_50) else {return}
+            if let data = try? Data(contentsOf: url) {
+                DispatchQueue.main.async {
+                    self.FriendImage!.image = UIImage(data: data)
+                }
+            }
+            self.FriendImage.layer.cornerRadius = 50;                            self.FriendImage.clipsToBounds = true
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
-
-

@@ -26,7 +26,7 @@ final class UserAPI {
             "access_token": Session.shared.token,
             "user_id": cliendId,
             "extended": "1",
-            "fields": "first_name, last_name, photo_50 ",
+            "fields": "first_name, last_name, photo_100",
             "v": version]
         
         let url = baseUrl + method

@@ -10,7 +10,7 @@ import Alamofire
 import DynamicJSON
 import RealmSwift
 
-class User3 {
+class User3: Object {
     
     @objc dynamic var id: Int = 0
     @objc dynamic var lastName: String = ""
@@ -19,7 +19,8 @@ class User3 {
 
     
     
-    init(json: JSON) {
+    convenience required init(json: JSON) {
+        self.init()
         self.id = json.id.int ?? 0 //json["id"] as! Int
         self.firstName = json.first_name.string ?? "" //json["first_name"] as! String
         self.lastName = json.last_name.string ?? "" //json["last_name"] as! String

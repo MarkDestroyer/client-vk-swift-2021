@@ -15,7 +15,8 @@ class GroupProfile {
     @objc dynamic var name: String = ""
     @objc dynamic var photo_50: String = ""
     
-    init(json:JSON) {
+    convenience required init(json:JSON) {
+        self.init()
         groupId = json.id.int ?? 0
         name = json.name.string ?? ""
         photo_50 = json.photo_50.string ?? ""

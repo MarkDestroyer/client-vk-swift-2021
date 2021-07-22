@@ -22,13 +22,17 @@ final class FriendsTableViewCell: UITableViewCell {
         
         
         DispatchQueue.global().async {
-            guard let url = URL(string: friend.photo_50) else {return}
+            guard let url = URL(string: friend.photo_max) else {return}
             if let data = try? Data(contentsOf: url) {
                 DispatchQueue.main.async {
                     self.FriendImage!.image = UIImage(data: data)
+                    self.FriendImage.layer.cornerRadius = 50;
+                    self.FriendImage.clipsToBounds = true
+                    self.FriendImage.layer.borderWidth = 5
+                    self.FriendImage.layer.borderColor = UIColor.black.cgColor
                 }
             }
-            self.FriendImage.layer.cornerRadius = 50;                            self.FriendImage.clipsToBounds = true
+          
         }
     }
 }

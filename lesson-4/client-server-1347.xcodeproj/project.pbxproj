@@ -18,15 +18,17 @@
 		1273D174269CB611003F2E68 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273D173269CB611003F2E68 /* UserAPI.swift */; };
 		1273D177269CB9C6003F2E68 /* Data+PrettyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273D176269CB9C6003F2E68 /* Data+PrettyJSON.swift */; };
 		1273D17A269CBD36003F2E68 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273D179269CBD36003F2E68 /* User.swift */; };
+		820E899C26A8C023008C8826 /* GradientX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820E899B26A8C023008C8826 /* GradientX.swift */; };
 		828D504E26A648E900408176 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828D504D26A648E900408176 /* FriendsTableViewController.swift */; };
 		828D505026A6560B00408176 /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828D504F26A6560B00408176 /* GroupsTableViewController.swift */; };
 		829A90F8269F4FA5000EC8CA /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829A90F7269F4FA5000EC8CA /* Friends.swift */; };
 		829A90FA269F50AD000EC8CA /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829A90F9269F50AD000EC8CA /* Group.swift */; };
 		829A90FD269F5594000EC8CA /* FriendsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829A90FC269F5594000EC8CA /* FriendsApi.swift */; };
 		829A90FF269F5C08000EC8CA /* GroupAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829A90FE269F5C08000EC8CA /* GroupAPI.swift */; };
+		82C3AD9D26A8D8A50019D941 /* WallCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C3AD9C26A8D8A50019D941 /* WallCollectionViewController.swift */; };
+		82C3AD9F26A8D9360019D941 /* WallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C3AD9E26A8D9360019D941 /* WallCollectionViewCell.swift */; };
 		82E9722826A8978A0009F024 /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9722726A8978A0009F024 /* Wall.swift */; };
 		82E9722A26A8984E0009F024 /* WallApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9722926A8984E0009F024 /* WallApi.swift */; };
-		82E9722C26A898ED0009F024 /* WallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9722B26A898ED0009F024 /* WallViewController.swift */; };
 		82E9722F26A89F940009F024 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9722E26A89F940009F024 /* FriendsTableViewCell.swift */; };
 		82E9723126A8A7210009F024 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9723026A8A7210009F024 /* GroupsTableViewCell.swift */; };
 		82ED1E4E26A0D0E500E579E6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED1E4D26A0D0E500E579E6 /* MenuViewController.swift */; };
@@ -34,7 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1273D0FF269377CC003F2E68 /* iMessanger X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iMessanger X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1273D0FF269377CC003F2E68 /* client-server-1347.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "client-server-1347.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1273D102269377CC003F2E68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1273D104269377CC003F2E68 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1273D109269377CC003F2E68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,15 +50,17 @@
 		1273D176269CB9C6003F2E68 /* Data+PrettyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+PrettyJSON.swift"; sourceTree = "<group>"; };
 		1273D179269CBD36003F2E68 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		58E1546E2D50E8EC5987BE42 /* Pods_client_server_1347.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_client_server_1347.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		820E899B26A8C023008C8826 /* GradientX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientX.swift; sourceTree = "<group>"; };
 		828D504D26A648E900408176 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		828D504F26A6560B00408176 /* GroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
 		829A90F7269F4FA5000EC8CA /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		829A90F9269F50AD000EC8CA /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		829A90FC269F5594000EC8CA /* FriendsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsApi.swift; sourceTree = "<group>"; };
 		829A90FE269F5C08000EC8CA /* GroupAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAPI.swift; sourceTree = "<group>"; };
+		82C3AD9C26A8D8A50019D941 /* WallCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallCollectionViewController.swift; sourceTree = "<group>"; };
+		82C3AD9E26A8D9360019D941 /* WallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallCollectionViewCell.swift; sourceTree = "<group>"; };
 		82E9722726A8978A0009F024 /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		82E9722926A8984E0009F024 /* WallApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallApi.swift; sourceTree = "<group>"; };
-		82E9722B26A898ED0009F024 /* WallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallViewController.swift; sourceTree = "<group>"; };
 		82E9722E26A89F940009F024 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		82E9723026A8A7210009F024 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		82ED1E4D26A0D0E500E579E6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 		1273D0F6269377CC003F2E68 = {
 			isa = PBXGroup;
 			children = (
+				820E899B26A8C023008C8826 /* GradientX.swift */,
 				82E9722D26A89F7A0009F024 /* Cells */,
 				1273D101269377CC003F2E68 /* client-server-1347 */,
 				1273D100269377CC003F2E68 /* Products */,
@@ -90,7 +95,7 @@
 		1273D100269377CC003F2E68 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1273D0FF269377CC003F2E68 /* iMessanger X.app */,
+				1273D0FF269377CC003F2E68 /* client-server-1347.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,11 +193,11 @@
 			isa = PBXGroup;
 			children = (
 				1273D15C26977D1C003F2E68 /* AuthViewController.swift */,
-				1273D16E269CB4C3003F2E68 /* UserViewController.swift */,
+				82C3AD9C26A8D8A50019D941 /* WallCollectionViewController.swift */,
 				828D504D26A648E900408176 /* FriendsTableViewController.swift */,
 				828D504F26A6560B00408176 /* GroupsTableViewController.swift */,
+				1273D16E269CB4C3003F2E68 /* UserViewController.swift */,
 				82ED1E4D26A0D0E500E579E6 /* MenuViewController.swift */,
-				82E9722B26A898ED0009F024 /* WallViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 			children = (
 				82E9722E26A89F940009F024 /* FriendsTableViewCell.swift */,
 				82E9723026A8A7210009F024 /* GroupsTableViewCell.swift */,
+				82C3AD9E26A8D9360019D941 /* WallCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -217,9 +223,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1273D0FE269377CC003F2E68 /* iMessanger X */ = {
+		1273D0FE269377CC003F2E68 /* client-server-1347 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1273D113269377CE003F2E68 /* Build configuration list for PBXNativeTarget "iMessanger X" */;
+			buildConfigurationList = 1273D113269377CE003F2E68 /* Build configuration list for PBXNativeTarget "client-server-1347" */;
 			buildPhases = (
 				42CA7C3B8548F17A7C47BD04 /* [CP] Check Pods Manifest.lock */,
 				1273D0FB269377CC003F2E68 /* Sources */,
@@ -231,9 +237,9 @@
 			);
 			dependencies = (
 			);
-			name = "iMessanger X";
+			name = "client-server-1347";
 			productName = "client-server-1347";
-			productReference = 1273D0FF269377CC003F2E68 /* iMessanger X.app */;
+			productReference = 1273D0FF269377CC003F2E68 /* client-server-1347.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -250,7 +256,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1273D0FA269377CC003F2E68 /* Build configuration list for PBXProject "iMessanger X" */;
+			buildConfigurationList = 1273D0FA269377CC003F2E68 /* Build configuration list for PBXProject "client-server-1347" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -263,7 +269,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1273D0FE269377CC003F2E68 /* iMessanger X */,
+				1273D0FE269377CC003F2E68 /* client-server-1347 */,
 			);
 		};
 /* End PBXProject section */
@@ -328,17 +334,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82E9722C26A898ED0009F024 /* WallViewController.swift in Sources */,
 				1273D177269CB9C6003F2E68 /* Data+PrettyJSON.swift in Sources */,
 				1273D15D26977D1C003F2E68 /* AuthViewController.swift in Sources */,
 				82E9722F26A89F940009F024 /* FriendsTableViewCell.swift in Sources */,
 				829A90FF269F5C08000EC8CA /* GroupAPI.swift in Sources */,
 				1273D103269377CC003F2E68 /* AppDelegate.swift in Sources */,
 				1273D16F269CB4C3003F2E68 /* UserViewController.swift in Sources */,
+				820E899C26A8C023008C8826 /* GradientX.swift in Sources */,
 				82E9722826A8978A0009F024 /* Wall.swift in Sources */,
+				82C3AD9F26A8D9360019D941 /* WallCollectionViewCell.swift in Sources */,
 				1273D17A269CBD36003F2E68 /* User.swift in Sources */,
 				1273D174269CB611003F2E68 /* UserAPI.swift in Sources */,
 				82E9723126A8A7210009F024 /* GroupsTableViewCell.swift in Sources */,
+				82C3AD9D26A8D8A50019D941 /* WallCollectionViewController.swift in Sources */,
 				829A90FA269F50AD000EC8CA /* Group.swift in Sources */,
 				828D505026A6560B00408176 /* GroupsTableViewController.swift in Sources */,
 				1273D105269377CC003F2E68 /* SceneDelegate.swift in Sources */,
@@ -534,7 +542,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1273D0FA269377CC003F2E68 /* Build configuration list for PBXProject "iMessanger X" */ = {
+		1273D0FA269377CC003F2E68 /* Build configuration list for PBXProject "client-server-1347" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1273D111269377CE003F2E68 /* Debug */,
@@ -543,7 +551,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1273D113269377CE003F2E68 /* Build configuration list for PBXNativeTarget "iMessanger X" */ = {
+		1273D113269377CE003F2E68 /* Build configuration list for PBXNativeTarget "client-server-1347" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1273D114269377CE003F2E68 /* Debug */,

@@ -24,7 +24,7 @@ final class FriendsAPI {
         let parameters: Parameters = [
             "access_token": token,
             "order": "hints",
-            "fields": "photo_50",
+            "fields": "photo_max",
             "v": version,
             "user_id": cliendId]
         

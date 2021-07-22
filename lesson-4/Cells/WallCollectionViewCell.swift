@@ -1,15 +1,15 @@
 //
-//  GroupsTableViewCell.swift
+//  WallCollectionViewCell.swift
 //  client-server-1347
 //
-//  Created by Марк Киричко on 21.07.2021.
+//  Created by Марк Киричко on 22.07.2021.
 //
 
 import UIKit
 
-class GroupsTableViewCell: UITableViewCell {
+class WallCollectionViewCell: UITableViewCell {
 
-    static let identifier = "GroupsTableViewCell"
+    static let identifier = "WallCollectionViewCell"
 
     @IBOutlet weak var groupImage: UIImageView!
     

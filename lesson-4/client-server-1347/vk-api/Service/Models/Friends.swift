@@ -14,9 +14,9 @@ class User3: Object {
     
     @objc dynamic var id: Int = 0
     @objc dynamic var lastName: String = ""
-    @objc dynamic var photo_50: String = ""
+    @objc dynamic var photo_max: String = ""
     @objc dynamic var firstName: String = ""
-
+    
     
     
     convenience required init(json: JSON) {
@@ -24,6 +24,6 @@ class User3: Object {
         self.id = json.id.int ?? 0 //json["id"] as! Int
         self.firstName = json.first_name.string ?? "" //json["first_name"] as! String
         self.lastName = json.last_name.string ?? "" //json["last_name"] as! String
-        self.photo_50 = json.photo_50.string ?? ""
+        self.photo_max = json.photo_max.string ?? ""
     }
 }

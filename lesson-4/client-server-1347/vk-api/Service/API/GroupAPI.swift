@@ -26,7 +26,7 @@ final class GroupAPI {
             "access_token": Session.shared.token,
             "group_id": cliendId,
             "extended": "1",
-            "fields": "photo_50",
+            "fields": "photo_max",
             "count": "45",
             "v": version,
         ]

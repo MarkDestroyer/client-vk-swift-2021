@@ -15,13 +15,19 @@ class Profile: Object {
     @objc dynamic var id: Int = 0
     @objc dynamic var lastName: String = ""
     @objc dynamic var firstName: String = ""
-    @objc dynamic var photo_100: String = ""
+    @objc dynamic var photo_max: String = ""
+    @objc dynamic var home_town: String = ""
+    @objc dynamic var bdate: String = ""
+    @objc dynamic var schools: String = ""
     
     convenience required init(json: JSON) {
         self.init()
         self.id = json.id.int ?? 0 //json["id"] as! Int
         self.firstName = json.first_name.string ?? "" //json["first_name"] as! String
         self.lastName = json.last_name.string ?? ""  //json["last_name"] as! String
-        self.photo_100 = json.photo_100.string ?? ""
+        self.photo_max = json.photo_max.string ?? ""
+        self.home_town = json.home_town.string ?? ""
+        self.bdate = json.bdate.string ?? ""
+        self.schools = json.education.string ?? ""
     }
 }

@@ -11,7 +11,8 @@ class UserProfileViewController: UIViewController {
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
-   
+    @IBOutlet weak var townLabel: UILabel!
+    @IBOutlet weak var bd: UILabel!
     
     let userApi = UserAPI()
     var user: Profile? = nil
@@ -23,19 +24,23 @@ class UserProfileViewController: UIViewController {
         userApi.getUserInfo {[weak self] user in guard let self = self else { return }
             self.user = user
             self.nameLabel?.text = "\(user.firstName) \(user.lastName)"
-           
-            
+            self.townLabel?.text = user.home_town
+            self.bd?.text = "Дата рождения: \(user.bdate)"
             
             DispatchQueue.global().async {
-                guard let url = URL(string: user.photo_100) else {return}
+                guard let url = URL(string: user.photo_max) else {return}
                 if let data = try? Data(contentsOf: url) {
                     DispatchQueue.main.async {
                         self.imageView.image = UIImage(data: data)
-                        self.imageView.layer.cornerRadius = 100;
+                        self.imageView.layer.cornerRadius = 75;
                         self.imageView.clipsToBounds = true
+                        self.imageView.layer.borderWidth = 5
+                        self.imageView.layer.borderColor = UIColor.black.cgColor
+                        
                     }
                 }
             }
+        
         }
     }
 }

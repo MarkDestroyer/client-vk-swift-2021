@@ -70,7 +70,7 @@ final class GroupAPI {
             guard let items = JSON(data).response.items.array else { return }
             
            let group = items.map { GroupModel(json: $0)}
-            
+           self.saveGroupData(group)
            completion(group)
             
         }

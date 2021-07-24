@@ -10,7 +10,9 @@ import UIKit
 class GroupsTableViewCell: UITableViewCell {
 
     static let identifier = "GroupsTableViewCell"
-
+    let groupDB = GroupDB()
+    var groups: [GroupModel] = []
+    
     @IBOutlet weak var groupImage: UIImageView!
     
     @IBOutlet weak var groupName: UILabel!
@@ -32,5 +34,18 @@ class GroupsTableViewCell: UITableViewCell {
             }
 
         }
+        DispatchQueue.main.async { [self] in
+            
+            self.groupDB.add(self.groups.first!)
+            
+            let _ = self.groupDB.read()
+            
+           
+            //self.personDB.delete(person2)
+            
+            //let _ = self.personDB.read()
+            
+        }
     }
+    
 }

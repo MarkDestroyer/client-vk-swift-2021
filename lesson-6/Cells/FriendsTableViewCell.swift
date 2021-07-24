@@ -10,10 +10,11 @@ import UIKit
 final class FriendsTableViewCell: UITableViewCell {
     
     static let identifier = "FriendsTableViewCell"
+    let friendDB = FriendDB()
+    var friends: [User3] = []
     
     @IBOutlet  weak var FriendImage: UIImageView!
     @IBOutlet  weak var nameLabel: UILabel!
-    
     @IBOutlet weak var cellView: UIView!
     
     
@@ -32,7 +33,19 @@ final class FriendsTableViewCell: UITableViewCell {
                     self.FriendImage.layer.borderColor = UIColor.black.cgColor
                 }
             }
-          
+            DispatchQueue.main.async { [self] in
+                
+                self.friendDB.add(self.friends.first!)
+                
+                let _ = self.friendDB.read()
+                
+               
+                //self.personDB.delete(person2)
+                
+                //let _ = self.personDB.read()
+                
+            }
+
         }
     }
 }

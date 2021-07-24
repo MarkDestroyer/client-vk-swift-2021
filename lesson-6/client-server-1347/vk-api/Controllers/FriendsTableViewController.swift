@@ -10,8 +10,8 @@ import UIKit
 class FriendsViewController: UITableViewController {
 
     let friendsAPI = FriendsAPI()
-    
     var friends: [User3] = []
+    let friendDB = FriendDB()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,7 @@ class FriendsViewController: UITableViewController {
             guard let self = self else { return }
             
             self.friends = users
+            self.friendDB.loadData()
             self.tableView.reloadData()
             print(users)
             

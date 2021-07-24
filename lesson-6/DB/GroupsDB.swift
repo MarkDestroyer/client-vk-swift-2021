@@ -19,6 +19,7 @@ class GroupDB: GroupsDBProtocol {
     
     let config = Realm.Configuration(schemaVersion: 3)
     lazy var mainRealm = try! Realm(configuration: config)
+    var group: Array<GroupModel> = [GroupModel]()
     
     func add(_ user: GroupModel) {
         
@@ -60,8 +61,46 @@ class GroupDB: GroupsDBProtocol {
         
     }
     
+    // сохранение погодных данных в realm
+        func saveGroupData(_ infoGroup: [GroupModel]) {
+    // обработка исключений при работе с хранилищем
+            do {
+    // получаем доступ к хранилищу
+                let realm = try Realm()
+                
+    // все старые погодные данные для текущего города
+                let oldGroupInfo = realm.objects(GroupModel.self)
+                
+    // начинаем изменять хранилище
+                realm.beginWrite()
+                
+    // удаляем старые данные
+                realm.delete(oldGroupInfo)
+                
+    // кладем все объекты класса погоды в хранилище
+                realm.add(infoGroup)
+                
+    // завершаем изменение хранилища
+                try realm.commitWrite()
+            } catch {
+    // если произошла ошибка, выводим ее в консоль
+                print(error)
+            }
+        }
     
-    
+    func loadData() {
+            do {
+                let realm = try Realm()
+                
+                let groupinfo = realm.objects(GroupModel.self)
+                
+                self.group = Array(groupinfo)
+                
+            } catch {
+    // если произошла ошибка, выводим ее в консоль
+                print(error)
+            }
+        }
 }
 
 

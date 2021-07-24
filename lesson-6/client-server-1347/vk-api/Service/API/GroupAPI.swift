@@ -16,33 +16,8 @@ final class GroupAPI {
     let token = Session.shared.token
     let cliendId = Session.shared.userId
     let version = "5.21"
-    
-    // сохранение погодных данных в realm
-        func saveGroupData(_ infoGroup: [GroupModel]) {
-    // обработка исключений при работе с хранилищем
-            do {
-    // получаем доступ к хранилищу
-                let realm = try Realm()
-                
-    // все старые погодные данные для текущего города
-                let oldGroupInfo = realm.objects(GroupModel.self)
-                
-    // начинаем изменять хранилище
-                realm.beginWrite()
-                
-    // удаляем старые данные
-                realm.delete(oldGroupInfo)
-                
-    // кладем все объекты класса погоды в хранилище
-                realm.add(infoGroup)
-                
-    // завершаем изменение хранилища
-                try realm.commitWrite()
-            } catch {
-    // если произошла ошибка, выводим ее в консоль
-                print(error)
-            }
-        }
+    let groupDB = GroupDB()
+   
 
     //DynamicJSON
     func getGroupInfo(completion: @escaping([GroupModel])->()) {
@@ -70,7 +45,7 @@ final class GroupAPI {
             guard let items = JSON(data).response.items.array else { return }
             
            let group = items.map { GroupModel(json: $0)}
-           self.saveGroupData(group)
+           self.groupDB.saveGroupData(group)
            completion(group)
             
         }

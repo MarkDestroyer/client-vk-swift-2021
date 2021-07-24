@@ -16,33 +16,9 @@ final class FriendsAPI {
     let token = Session.shared.token
     let cliendId = Session.shared.userId
     let version = "5.21"
+    let friendDB = FriendDB()
     
-    // сохранение погодных данных в realm
-        func saveFriendsData(_ info: [User3]) {
-    // обработка исключений при работе с хранилищем
-            do {
-    // получаем доступ к хранилищу
-                let realm = try Realm()
-                
-    // все старые погодные данные для текущего города
-                let oldFriendUserInfo = realm.objects(User3.self)
-                
-    // начинаем изменять хранилище
-                realm.beginWrite()
-                
-    // удаляем старые данные
-                realm.delete(oldFriendUserInfo)
-                
-    // кладем все объекты класса погоды в хранилище
-                realm.add(info)
-                
-    // завершаем изменение хранилища
-                try realm.commitWrite()
-            } catch {
-    // если произошла ошибка, выводим ее в консоль
-                print(error)
-            }
-        }
+    
     //DynamicJSON
     func getFriends3(completion: @escaping([User3])->()) {
         
@@ -65,7 +41,7 @@ final class FriendsAPI {
             guard let items = JSON(data).response.items.array else { return }
             
             let friends = items.map { User3(json: $0)}
-            self.saveFriendsData(friends)
+            self.friendDB.saveFriendsData(friends)
             completion(friends)
             
         }

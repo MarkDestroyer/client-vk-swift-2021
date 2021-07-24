@@ -10,7 +10,7 @@ import UIKit
 class GroupsViewController: UITableViewController {
 
     let groupAPI = GroupAPI()
-    
+    let groupDB = GroupDB()
     var groups: [GroupModel] = []
     
     override func viewDidLoad() {
@@ -23,6 +23,7 @@ class GroupsViewController: UITableViewController {
             guard let self = self else { return }
             
             self.groups = group
+            self.groupDB.loadData()
             self.tableView.reloadData()
             print(group)
         }

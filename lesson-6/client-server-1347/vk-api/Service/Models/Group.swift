@@ -11,6 +11,7 @@ import DynamicJSON
 import RealmSwift
 
 class GroupModel: Object {
+    
     @objc dynamic var groupId: Int = 0
     @objc dynamic var name: String = ""
     @objc dynamic var photo_max: String = ""

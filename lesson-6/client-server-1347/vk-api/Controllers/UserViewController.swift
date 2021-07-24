@@ -16,7 +16,7 @@ class UserProfileViewController: UIViewController {
     
     let userApi = UserAPI()
     var user: Profile? = nil
-    
+    let personDB = PersonDB()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +41,19 @@ class UserProfileViewController: UIViewController {
                 }
             }
         
+            DispatchQueue.main.async {
+                
+                self.personDB.add(user)
+                
+                let _ = self.personDB.read()
+                
+               
+                //self.personDB.delete(person2)
+                
+                //let _ = self.personDB.read()
+                
+            }
+
         }
     }
 }

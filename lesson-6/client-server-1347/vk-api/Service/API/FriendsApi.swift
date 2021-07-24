@@ -39,7 +39,7 @@ final class FriendsAPI {
             print(data.prettyJSON as Any)
 
             guard let items = JSON(data).response.items.array else { return }
-            
+                
             let friends = items.map { User3(json: $0)}
             self.friendDB.saveFriendsData(friends)
             completion(friends)

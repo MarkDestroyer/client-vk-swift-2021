@@ -47,6 +47,7 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        userApi.getUserInfo {[weak self] user in guard let self = self else { return }
         DispatchQueue.main.async {
             
                 self.loadData()
@@ -54,4 +55,4 @@ class UserProfileViewController: UIViewController {
             }
         }
     }
-
+}

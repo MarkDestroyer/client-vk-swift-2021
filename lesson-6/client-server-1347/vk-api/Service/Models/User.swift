@@ -18,7 +18,7 @@ class Profile: Object {
     @objc dynamic var photo_max: String = ""
     @objc dynamic var home_town: String = ""
     @objc dynamic var bdate: String = ""
-    @objc dynamic var schools: String = ""
+    
     
     convenience required init(json: JSON) {
         self.init()
@@ -28,6 +28,6 @@ class Profile: Object {
         self.photo_max = json.photo_max.string ?? ""
         self.home_town = json.home_town.string ?? ""
         self.bdate = json.bdate.string ?? ""
-        self.schools = json.education.string ?? ""
+       
     }
 }

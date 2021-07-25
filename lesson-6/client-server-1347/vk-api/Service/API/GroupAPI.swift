@@ -44,10 +44,12 @@ final class GroupAPI {
             
             guard let items = JSON(data).response.items.array else { return }
             
-           let group = items.map { GroupModel(json: $0)}
-           self.groupDB.saveGroupData(group)
-           completion(group)
-            
+            let group = items.map { GroupModel(json: $0)}
+           
+            DispatchQueue.main.async {
+                self.groupDB.saveGroupData(group)
+               completion(group)
+            }
         }
     }
 }

@@ -18,6 +18,8 @@ final class UserAPI {
     let version = "5.31"
     let personDB = PersonDB()
     
+    
+    
     //DynamicJSON
     func getUserInfo(completion: @escaping(Profile)->()) {
         
@@ -35,7 +37,6 @@ final class UserAPI {
         
         AF.request(url, method: .get, parameters: parameters).responseData { response in
             
-        
             guard let data = response.data else { return }
             print(data.prettyJSON as Any)
 
@@ -43,10 +44,15 @@ final class UserAPI {
             let profile = items.map { Profile(json: $0)}
             
             guard let firstUser = profile.first else {return}
-            self.personDB.saveUserData(firstUser)
-
-            completion(firstUser)
             
+            
+            DispatchQueue.main.async {
+                
+                self.personDB.saveUserData(firstUser)
+
+                completion(firstUser)
+                
+            }
         }
     }
 }

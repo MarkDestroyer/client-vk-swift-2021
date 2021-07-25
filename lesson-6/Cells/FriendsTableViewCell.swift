@@ -11,6 +11,7 @@ final class FriendsTableViewCell: UITableViewCell {
     
     static let identifier = "FriendsTableViewCell"
     var friends: [User3] = []
+    var friendDB = FriendDB()
     
     @IBOutlet  weak var FriendImage: UIImageView!
     @IBOutlet  weak var nameLabel: UILabel!
@@ -18,10 +19,9 @@ final class FriendsTableViewCell: UITableViewCell {
     
     
     func configure(_ friend: User3)  {
-        nameLabel?.text = "\(friend.firstName) \(friend.lastName)"
         
-        
-        DispatchQueue.global().async {
+       
+        DispatchQueue.main.async {
             guard let url = URL(string: friend.photo_max) else {return}
             if let data = try? Data(contentsOf: url) {
                 DispatchQueue.main.async {
@@ -30,9 +30,10 @@ final class FriendsTableViewCell: UITableViewCell {
                     self.FriendImage.clipsToBounds = true
                     self.FriendImage.layer.borderWidth = 5
                     self.FriendImage.layer.borderColor = UIColor.black.cgColor
+                    self.nameLabel?.text = "\(friend.firstName) \(friend.lastName)"
+                    self.friendDB.read()
                 }
             }
-          
 
         }
     }

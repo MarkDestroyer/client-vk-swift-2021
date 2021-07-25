@@ -12,6 +12,7 @@ class GroupsTableViewCell: UITableViewCell {
     static let identifier = "GroupsTableViewCell"
     var groups: [GroupModel] = []
     
+    
     @IBOutlet weak var groupImage: UIImageView!
     @IBOutlet weak var groupName: UILabel!
     
@@ -19,7 +20,7 @@ class GroupsTableViewCell: UITableViewCell {
         groupName?.text = "\(group.name)"
         
         
-        DispatchQueue.global().async {
+        DispatchQueue.main.async {
             guard let url = URL(string: group.photo_max) else {return}
             if let data = try? Data(contentsOf: url) {
                 DispatchQueue.main.async {

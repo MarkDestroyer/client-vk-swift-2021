@@ -17,7 +17,7 @@ protocol PersonDBProtocol {
 
 class PersonDB: PersonDBProtocol {
     
-    let config = Realm.Configuration(schemaVersion: 3)
+    let config = Realm.Configuration(schemaVersion: 4)
     lazy var mainRealm = try! Realm(configuration: config)
     
     var user: Array<Profile> = [Profile]()
@@ -62,29 +62,21 @@ class PersonDB: PersonDBProtocol {
         
     }
     
-    // сохранение погодных данных в realm
+    
         func saveUserData(_ info: (Profile)) {
-    // обработка исключений при работе с хранилищем
             do {
-    // получаем доступ к хранилищу
                 let realm = try Realm()
-                
-    // все старые погодные данные для текущего города
                 let oldUserInfo = realm.objects(Profile.self)
                 
-    // начинаем изменять хранилище
                 realm.beginWrite()
-                
-    // удаляем старые данные
+    
                 realm.delete(oldUserInfo)
                 
-    // кладем все объекты класса погоды в хранилище
                 realm.add(info)
                 
-    // завершаем изменение хранилища
                 try realm.commitWrite()
             } catch {
-    // если произошла ошибка, выводим ее в консоль
+    
                 print(error)
             }
         }

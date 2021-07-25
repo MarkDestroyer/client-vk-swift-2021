@@ -101,9 +101,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="FriendImage" destination="fGs-6Q-M0k" id="OQB-Sl-6rp"/>
-                                    <outlet property="cellView" destination="Omk-VM-gLP" id="yXo-Oi-M1I"/>
-                                    <outlet property="nameLabel" destination="9Fv-cs-Jdu" id="gAd-HX-GDO"/>
+                                    <outlet property="FriendImage" destination="fGs-6Q-M0k" id="lEX-ZQ-Ej1"/>
+                                    <outlet property="nameLabel" destination="9Fv-cs-Jdu" id="s87-Un-R1x"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

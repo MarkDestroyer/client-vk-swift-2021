@@ -6,16 +6,16 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class FriendsTableViewCell: UITableViewCell {
     
     static let identifier = "FriendsTableViewCell"
-    var friends: [User3] = []
+    var user: Array<User3> = [User3]()
     var friendDB = FriendDB()
     
     @IBOutlet  weak var FriendImage: UIImageView!
     @IBOutlet  weak var nameLabel: UILabel!
-    @IBOutlet weak var cellView: UIView!
     
     
     func configure(_ friend: User3)  {
@@ -36,5 +36,27 @@ final class FriendsTableViewCell: UITableViewCell {
             }
 
         }
+    
     }
+
+    func loadData() {
+            do {
+                let realm = try Realm()
+                
+                let userinfo = realm.objects(User3.self)
+                
+                self.user = Array(userinfo)
+                
+                for person in user {
+                    var firstname = person.firstName
+                    var lastname = person.lastName
+                    var fullname = ("\(firstname) \(lastname)")
+                    nameLabel.text = fullname
+                }
+            } catch {
+    // если произошла ошибка, выводим ее в консоль
+                print(error)
+            }
+        }
+
 }

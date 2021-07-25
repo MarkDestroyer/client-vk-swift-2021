@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class UserProfileViewController: UIViewController {
     
@@ -15,16 +16,42 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var bd: UILabel!
     
     let userApi = UserAPI()
-    var user: Profile? = nil
+    var user: Array<Profile> = [Profile]()
     let personDB = PersonDB()
+    
+    func loadData() {
+            do {
+                let realm = try Realm()
+                
+                let userinfo = realm.objects(Profile.self)
+                
+                self.user = Array(userinfo)
+                
+                for person in user {
+                    var firstname = person.firstName
+                    var lastname = person.lastName
+                    var fullname = ("\(firstname) \(lastname)")
+                    var town = person.home_town
+                    var birthday = person.bdate
+                    nameLabel.text = fullname
+                    townLabel.text = town
+                    bd.text = birthday
+                }
+            } catch {
+    // если произошла ошибка, выводим ее в консоль
+                print(error)
+            }
+        }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         DispatchQueue.main.async {
-            self.userApi.getUserInfo {[weak self] user in guard let self = self else { return }
-                self.personDB.loadData()
+            
+                self.loadData()
+                self.personDB.read()
             }
         }
     }
-}
+

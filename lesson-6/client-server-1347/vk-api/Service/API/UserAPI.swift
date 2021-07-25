@@ -21,38 +21,38 @@ final class UserAPI {
     
     
     //DynamicJSON
-    func getUserInfo(completion: @escaping(Profile)->()) {
+//    func getUserInfo(completion: @escaping(Profile)->()) {
+//
+//        let method = "/users.get"
+//
+//        let parameters: Parameters = [
+//            "access_token": Session.shared.token,
+//            "user_id": cliendId,
+//            "extended": "1",
+//            "fields": "first_name, last_name, photo_max, home_town, bdate",
+//            "schools": "year_to",
+//            "v": version]
+//
+//        let url = baseUrl + method
         
-        let method = "/users.get"
-        
-        let parameters: Parameters = [
-            "access_token": Session.shared.token,
-            "user_id": cliendId,
-            "extended": "1",
-            "fields": "first_name, last_name, photo_max, home_town, bdate",
-            "schools": "year_to",
-            "v": version]
-        
-        let url = baseUrl + method
-        
-        AF.request(url, method: .get, parameters: parameters).responseData { response in
-            
-            guard let data = response.data else { return }
-            print(data.prettyJSON as Any)
-
-            guard let items = JSON(data).response.array else { return }
-            let profile = items.map { Profile(json: $0)}
-            
-            guard let firstUser = profile.first else {return}
-            
-            
-            DispatchQueue.main.async {
-                
-                self.personDB.saveUserData(firstUser)
-
-                completion(firstUser)
-                
-            }
-        }
+//        AF.request(url, method: .get, parameters: parameters).responseData { response in
+//
+//            guard let data = response.data else { return }
+//            print(data.prettyJSON as Any)
+//
+//            guard let items = JSON(data).response.array else { return }
+//            let profile = items.map { Profile(json: $0)}
+//
+//            guard let firstUser = profile.first else {return}
+//
+//
+//            DispatchQueue.main.async {
+//
+//                self.personDB.saveUserData(firstUser)
+//
+//                completion(firstUser)
+//
+//            }
+//        }
     }
-}
+//}

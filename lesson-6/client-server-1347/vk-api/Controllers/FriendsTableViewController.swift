@@ -28,7 +28,7 @@ class FriendsViewController: UITableViewController {
             print(users)
             
         }
-  
+
     }
 
     // MARK: - Table view data source

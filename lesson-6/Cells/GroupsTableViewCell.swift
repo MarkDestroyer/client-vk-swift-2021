@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class GroupsTableViewCell: UITableViewCell {
 
     static let identifier = "GroupsTableViewCell"
-    var groups: [GroupModel] = []
+    var group: Array<GroupModel> = [GroupModel]()
+    var groupDB = GroupDB()
     
     
     @IBOutlet weak var groupImage: UIImageView!
@@ -29,6 +31,7 @@ class GroupsTableViewCell: UITableViewCell {
                     self.groupImage.clipsToBounds = true
                     self.groupImage.layer.borderWidth = 5
                     self.groupImage.layer.borderColor = UIColor.black.cgColor
+                    self.groupDB.read()
                 }
             }
 
@@ -36,4 +39,21 @@ class GroupsTableViewCell: UITableViewCell {
         
     }
     
+    func loadData() {
+            do {
+                let realm = try Realm()
+                
+                let userinfo = realm.objects(GroupModel.self)
+                
+                self.group = Array(userinfo)
+                
+                for groups in group {
+                    var name = groups.name
+                    groupName.text = name
+                }
+            } catch {
+    // если произошла ошибка, выводим ее в консоль
+                print(error)
+            }
+        }
 }

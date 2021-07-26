@@ -18,7 +18,6 @@
 		1273D174269CB611003F2E68 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273D173269CB611003F2E68 /* UserAPI.swift */; };
 		1273D177269CB9C6003F2E68 /* Data+PrettyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273D176269CB9C6003F2E68 /* Data+PrettyJSON.swift */; };
 		1273D17A269CBD36003F2E68 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273D179269CBD36003F2E68 /* User.swift */; };
-		820E899C26A8C023008C8826 /* GradientX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820E899B26A8C023008C8826 /* GradientX.swift */; };
 		828D504E26A648E900408176 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828D504D26A648E900408176 /* FriendsTableViewController.swift */; };
 		828D505026A6560B00408176 /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828D504F26A6560B00408176 /* GroupsTableViewController.swift */; };
 		829A90F8269F4FA5000EC8CA /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829A90F7269F4FA5000EC8CA /* Friends.swift */; };
@@ -49,7 +48,6 @@
 		1273D176269CB9C6003F2E68 /* Data+PrettyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+PrettyJSON.swift"; sourceTree = "<group>"; };
 		1273D179269CBD36003F2E68 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		58E1546E2D50E8EC5987BE42 /* Pods_client_server_1347.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_client_server_1347.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		820E899B26A8C023008C8826 /* GradientX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientX.swift; sourceTree = "<group>"; };
 		828D504D26A648E900408176 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		828D504F26A6560B00408176 /* GroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
 		829A90F7269F4FA5000EC8CA /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				82E4018526AB9ADA0079B3F7 /* DB */,
-				820E899B26A8C023008C8826 /* GradientX.swift */,
 				82E9722D26A89F7A0009F024 /* Cells */,
 				1273D101269377CC003F2E68 /* client-server-1347 */,
 				1273D100269377CC003F2E68 /* Products */,
@@ -345,7 +342,6 @@
 				829A90FF269F5C08000EC8CA /* GroupAPI.swift in Sources */,
 				1273D103269377CC003F2E68 /* AppDelegate.swift in Sources */,
 				1273D16F269CB4C3003F2E68 /* UserViewController.swift in Sources */,
-				820E899C26A8C023008C8826 /* GradientX.swift in Sources */,
 				1273D17A269CBD36003F2E68 /* User.swift in Sources */,
 				82E4018926AB9B350079B3F7 /* FriendsDB.swift in Sources */,
 				1273D174269CB611003F2E68 /* UserAPI.swift in Sources */,

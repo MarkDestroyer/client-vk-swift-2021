@@ -22,8 +22,7 @@ class GroupsViewController: UITableViewController {
             
             guard let self = self else { return }
             
-            self.groups = group
-            self.groupDB.loadData()
+            
             self.tableView.reloadData()
             print(group)
         }
@@ -44,7 +43,7 @@ class GroupsViewController: UITableViewController {
       
         
         cell.configure(groups[indexPath.row])
-        
+        cell.loadData()
 
         return cell
     }

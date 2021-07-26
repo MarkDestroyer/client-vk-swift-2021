@@ -20,7 +20,7 @@ final class FriendsTableViewCell: UITableViewCell {
     
     func configure(_ friend: User3)  {
         
-       
+        
         DispatchQueue.main.async {
             guard let url = URL(string: friend.photo_max) else {return}
             if let data = try? Data(contentsOf: url) {
@@ -32,31 +32,32 @@ final class FriendsTableViewCell: UITableViewCell {
                     self.FriendImage.layer.borderColor = UIColor.black.cgColor
                     self.nameLabel?.text = "\(friend.firstName) \(friend.lastName)"
                     self.friendDB.read()
+                    //self.loadData()
                 }
             }
-
+            
         }
-    
+        
     }
-
+    
     func loadData() {
-            do {
-                let realm = try Realm()
-                
-                let userinfo = realm.objects(User3.self)
-                
-                self.user = Array(userinfo)
-                
-                for person in user {
-                    var firstname = person.firstName
-                    var lastname = person.lastName
-                    var fullname = ("\(firstname) \(lastname)")
-                    nameLabel.text = fullname
-                }
-            } catch {
-    // если произошла ошибка, выводим ее в консоль
-                print(error)
+        do {
+            let realm = try Realm()
+            
+            let userinfo = realm.objects(User3.self)
+            
+            self.user = Array(userinfo)
+            
+            for person in user {
+                var firstname = person.firstName
+                var lastname = person.lastName
+                var fullname = ("\(firstname) \(lastname)")
+                nameLabel.text = fullname
             }
+        } catch {
+            // если произошла ошибка, выводим ее в консоль
+            print(error)
         }
-
+    }
+    
 }

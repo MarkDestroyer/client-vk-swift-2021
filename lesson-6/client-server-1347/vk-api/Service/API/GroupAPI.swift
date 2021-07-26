@@ -47,7 +47,7 @@ final class GroupAPI {
             let group = items.map { GroupModel(json: $0)}
            
             DispatchQueue.main.async {
-                self.groupDB.saveGroupData(group)
+               self.groupDB.saveGroupData(group)
                completion(group)
             }
         }

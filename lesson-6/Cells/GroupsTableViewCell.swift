@@ -14,7 +14,6 @@ class GroupsTableViewCell: UITableViewCell {
     var group: Array<GroupModel> = [GroupModel]()
     var groupDB = GroupDB()
     
-    
     @IBOutlet weak var groupImage: UIImageView!
     @IBOutlet weak var groupName: UILabel!
     
@@ -39,21 +38,19 @@ class GroupsTableViewCell: UITableViewCell {
         
     }
     
-    func loadData() {
-            do {
-                let realm = try Realm()
-                
-                let userinfo = realm.objects(GroupModel.self)
-                
-                self.group = Array(userinfo)
-                
-                for groups in group {
-                    var name = groups.name
-                    groupName.text = name
-                }
-            } catch {
-    // если произошла ошибка, выводим ее в консоль
-                print(error)
-            }
+   
+    func loadData(_ group: GroupModel) {
+        do {
+            let realm = try Realm()
+            
+            let userinfo = realm.objects(GroupModel.self)
+            
+            self.group = Array(userinfo)
+            
+            groupName.text = group.name
+        } catch {
+            // если произошла ошибка, выводим ее в консоль
+            print(error)
         }
+    }
 }

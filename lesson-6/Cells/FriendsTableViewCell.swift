@@ -30,7 +30,7 @@ final class FriendsTableViewCell: UITableViewCell {
                     self.FriendImage.clipsToBounds = true
                     self.FriendImage.layer.borderWidth = 5
                     self.FriendImage.layer.borderColor = UIColor.black.cgColor
-                    self.nameLabel?.text = "\(friend.firstName) \(friend.lastName)"
+                    //self.nameLabel?.text = "\(friend.firstName) \(friend.lastName)"
                     self.friendDB.read()
                     //self.loadData()
                 }
@@ -40,7 +40,7 @@ final class FriendsTableViewCell: UITableViewCell {
         
     }
     
-    func loadData() {
+    func loadData(_ friend: User3) {
         do {
             let realm = try Realm()
             
@@ -48,12 +48,8 @@ final class FriendsTableViewCell: UITableViewCell {
             
             self.user = Array(userinfo)
             
-            for person in user {
-                var firstname = person.firstName
-                var lastname = person.lastName
-                var fullname = ("\(firstname) \(lastname)")
-                nameLabel.text = fullname
-            }
+            nameLabel.text = ("\(friend.firstName) \(friend.lastName)")
+            
         } catch {
             // если произошла ошибка, выводим ее в консоль
             print(error)

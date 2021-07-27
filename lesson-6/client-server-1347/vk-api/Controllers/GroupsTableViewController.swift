@@ -6,12 +6,28 @@
 //
 
 import UIKit
+import RealmSwift
 
 class GroupsViewController: UITableViewController {
 
     let groupAPI = GroupAPI()
     let groupDB = GroupDB()
-    var groups: [GroupModel] = []
+    var groups: Array<GroupModel> = [GroupModel]()
+    
+    
+    func loadData() {
+        do {
+            let realm = try Realm()
+            
+            let userinfo = realm.objects(GroupModel.self)
+            
+            self.groups = Array(userinfo)
+             
+        } catch {
+            // если произошла ошибка, выводим ее в консоль
+            print(error)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +38,7 @@ class GroupsViewController: UITableViewController {
             
             guard let self = self else { return }
             
-            
+            self.loadData()
             self.tableView.reloadData()
             print(group)
         }
@@ -42,8 +58,8 @@ class GroupsViewController: UITableViewController {
 
       
         
-        cell.configure(groups[indexPath.row])
-        cell.loadData()
+        //cell.configure(groups[indexPath.row])
+        cell.loadData(groups[indexPath.row])
 
         return cell
     }

@@ -6,13 +6,28 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FriendsViewController: UITableViewController {
 
     let friendsAPI = FriendsAPI()
-    var friends: [User3] = []
+    var friends: Array<User3> = [User3]()
     let friendDB = FriendDB()
-    let s = FriendsTableViewCell()
+    
+    func loadData() {
+        do {
+            let realm = try Realm()
+            
+            let userinfo = realm.objects(User3.self)
+            
+            self.friends = Array(userinfo)
+             
+        } catch {
+            // если произошла ошибка, выводим ее в консоль
+            print(error)
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +39,7 @@ class FriendsViewController: UITableViewController {
             guard let self = self else { return }
             
            
-            self.s.loadData()
+            self.loadData()
             self.tableView.reloadData()
             print(users)
             
@@ -46,9 +61,8 @@ class FriendsViewController: UITableViewController {
 
       
         
-        cell.configure(friends[indexPath.row])
-        cell.loadData()
-        
+        //cell.configure(friends[indexPath.row])
+        cell.loadData(friends[indexPath.row])
 
         return cell
     }

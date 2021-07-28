@@ -42,6 +42,10 @@ class UserProfileViewController: UIViewController {
                     townLabel.text = town
                     bd.text = birthday
                     imageView.sd_setImage(with:  URL(string: person.photo_max)!)
+                    self.imageView.layer.cornerRadius = 75;
+                    self.imageView.clipsToBounds = true
+                    self.imageView.layer.borderWidth = 5
+                    self.imageView.layer.borderColor = UIColor.black.cgColor
                 }
             } catch {
     // если произошла ошибка, выводим ее в консоль

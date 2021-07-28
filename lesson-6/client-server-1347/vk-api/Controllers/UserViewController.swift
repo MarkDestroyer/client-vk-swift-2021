@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import SDWebImage
 
 class UserProfileViewController: UIViewController {
     
@@ -18,6 +19,10 @@ class UserProfileViewController: UIViewController {
     let userApi = UserAPI()
     var user: Array<Profile> = [Profile]()
     let personDB = PersonDB()
+    
+    
+    
+    
     
     func loadData() {
             do {
@@ -36,6 +41,7 @@ class UserProfileViewController: UIViewController {
                     nameLabel.text = fullname
                     townLabel.text = town
                     bd.text = birthday
+                    imageView.sd_setImage(with:  URL(string: person.photo_max)!)
                 }
             } catch {
     // если произошла ошибка, выводим ее в консоль
@@ -49,7 +55,6 @@ class UserProfileViewController: UIViewController {
         
         userApi.getUserInfo {[weak self] user in guard let self = self else { return }
         DispatchQueue.main.async {
-            
                 self.loadData()
                 self.personDB.read()
             }

@@ -19,8 +19,6 @@ final class FriendsTableViewCell: UITableViewCell {
     
     
     func configure(_ friend: User3)  {
-        
-        
         DispatchQueue.main.async {
             guard let url = URL(string: friend.photo_max) else {return}
             if let data = try? Data(contentsOf: url) {
@@ -30,9 +28,6 @@ final class FriendsTableViewCell: UITableViewCell {
                     self.FriendImage.clipsToBounds = true
                     self.FriendImage.layer.borderWidth = 5
                     self.FriendImage.layer.borderColor = UIColor.black.cgColor
-                    //self.nameLabel?.text = "\(friend.firstName) \(friend.lastName)"
-                    self.friendDB.read()
-                    //self.loadData()
                 }
             }
             
@@ -49,11 +44,17 @@ final class FriendsTableViewCell: UITableViewCell {
             self.user = Array(userinfo)
             
             nameLabel.text = ("\(friend.firstName) \(friend.lastName)")
-            
+            FriendImage!.sd_setImage(with:  URL(string: friend.photo_max)!)
+            self.FriendImage.layer.cornerRadius = 50;
+            self.FriendImage.clipsToBounds = true
+            self.FriendImage.layer.borderWidth = 5
+            self.FriendImage.layer.borderColor = UIColor.black.cgColor
+            self.friendDB.read()
         } catch {
             // если произошла ошибка, выводим ее в консоль
             print(error)
         }
+        friendDB.read()
     }
     
 }

@@ -66,5 +66,6 @@ class FriendsViewController: UITableViewController {
 
         return cell
     }
+
 }
 

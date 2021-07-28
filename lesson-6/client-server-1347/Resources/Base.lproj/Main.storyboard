@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--client-server-1347-->
+        <!--iMessanger X-->
         <scene sceneID="tsO-QI-Yy7">
             <objects>
                 <tabBarController id="pMp-rK-AB5" customClass="MenuViewController" customModule="client_server_1347" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="client-server-1347" id="XCP-35-fXk"/>
+                    <navigationItem key="navigationItem" title="iMessanger X" id="XCP-35-fXk"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cyn-xg-JDz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

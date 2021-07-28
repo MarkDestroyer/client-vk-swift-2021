@@ -14,4 +14,6 @@ target 'client-server-1347' do
   pod 'ShimmerSwift'
   pod 'SkeletonView'
   pod 'SwiftyJSON'
+  pod 'SDWebImage'
+  
 end

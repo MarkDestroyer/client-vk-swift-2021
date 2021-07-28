@@ -17,25 +17,8 @@ class GroupsTableViewCell: UITableViewCell {
     @IBOutlet weak var groupImage: UIImageView!
     @IBOutlet weak var groupName: UILabel!
     
-    func configure(_ group: GroupModel)  {
-        DispatchQueue.main.async {
-            guard let url = URL(string: group.photo_max) else {return}
-            if let data = try? Data(contentsOf: url) {
-                DispatchQueue.main.async {
-                    self.groupImage!.image = UIImage(data: data)
-                    self.groupImage.layer.cornerRadius = 50;
-                    self.groupImage.clipsToBounds = true
-                    self.groupImage.layer.borderWidth = 5
-                    self.groupImage.layer.borderColor = UIColor.black.cgColor
-                    self.groupDB.read()
-                }
-            }
-
-        }
-        
-    }
-    
    
+    
     func loadData(_ group: GroupModel) {
         do {
             let realm = try Realm()
@@ -50,10 +33,30 @@ class GroupsTableViewCell: UITableViewCell {
             self.groupImage.clipsToBounds = true
             self.groupImage.layer.borderWidth = 5
             self.groupImage.layer.borderColor = UIColor.black.cgColor
+            let tap = UITapGestureRecognizer(target: self, action: #selector(viewOnTapped))
+            groupImage.addGestureRecognizer(tap)
+            groupImage.isUserInteractionEnabled = true
             self.groupDB.read()
         } catch {
             // если произошла ошибка, выводим ее в консоль
             print(error)
         }
     }
+
+
+    private func springAnimationGroups() {
+        let animation = CASpringAnimation(keyPath: "transform.scale")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.stiffness = 300
+        animation.mass = 3
+        animation.duration = 3
+        animation.beginTime = CACurrentMediaTime() + 1
+        groupImage.layer.add(animation, forKey: nil)
+    }
+
+    @objc func viewOnTapped() {
+        springAnimationGroups()
+    }
+
 }

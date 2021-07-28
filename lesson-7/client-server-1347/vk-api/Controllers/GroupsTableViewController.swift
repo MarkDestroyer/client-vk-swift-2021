@@ -14,6 +14,8 @@ class GroupsViewController: UITableViewController {
     //var groups: Array<GroupModel> = [GroupModel]()
     let groupDB = GroupDB()
     var token: NotificationToken?
+    let config = Realm.Configuration(schemaVersion: 4)
+    lazy var mainRealm = try! Realm(configuration: config)
     
     var groups: Results<GroupModel>? {
         didSet {
@@ -91,7 +93,7 @@ class GroupsViewController: UITableViewController {
         
         
         
-        //cell.configure(groups[indexPath.row])
+        
         cell.loadData(groups![indexPath.row])
         
         return cell

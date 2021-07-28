@@ -18,22 +18,6 @@ final class FriendsTableViewCell: UITableViewCell {
     @IBOutlet  weak var nameLabel: UILabel!
     
     
-    func configure(_ friend: User3)  {
-        DispatchQueue.main.async {
-            guard let url = URL(string: friend.photo_max) else {return}
-            if let data = try? Data(contentsOf: url) {
-                DispatchQueue.main.async {
-                    self.FriendImage!.image = UIImage(data: data)
-                    self.FriendImage.layer.cornerRadius = 50;
-                    self.FriendImage.clipsToBounds = true
-                    self.FriendImage.layer.borderWidth = 5
-                    self.FriendImage.layer.borderColor = UIColor.black.cgColor
-                }
-            }
-            
-        }
-        
-    }
     
     func loadData(_ friend: User3) {
         do {
@@ -49,12 +33,30 @@ final class FriendsTableViewCell: UITableViewCell {
             self.FriendImage.clipsToBounds = true
             self.FriendImage.layer.borderWidth = 5
             self.FriendImage.layer.borderColor = UIColor.black.cgColor
+            let tap = UITapGestureRecognizer(target: self, action: #selector(viewOnTapped))
+            FriendImage.addGestureRecognizer(tap)
+            FriendImage.isUserInteractionEnabled = true
             self.friendDB.read()
         } catch {
             // если произошла ошибка, выводим ее в консоль
             print(error)
         }
         friendDB.read()
+    }
+    
+    private func springAnimationFriends() {
+        let animation = CASpringAnimation(keyPath: "transform.scale")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.stiffness = 300
+        animation.mass = 3
+        animation.duration = 3
+        animation.beginTime = CACurrentMediaTime() + 1
+        FriendImage.layer.add(animation, forKey: nil)
+    }
+
+    @objc func viewOnTapped() {
+        springAnimationFriends()
     }
     
 }

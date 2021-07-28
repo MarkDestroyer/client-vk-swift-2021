@@ -14,6 +14,8 @@ class FriendsViewController: UITableViewController {
     //var friends: Array<User3> = [User3]()
     let friendDB = FriendDB()
     var token: NotificationToken?
+    let config = Realm.Configuration(schemaVersion: 4)
+    lazy var mainRealm = try! Realm(configuration: config)
     
     var friends: Results<User3>? {
         didSet {
@@ -71,7 +73,7 @@ class FriendsViewController: UITableViewController {
             
             guard let self = self else { return }
             
-            
+            //self.friends = self.mainRealm.objects(User3.self)
             self.loadData()
             self.tableView.reloadData()
             print(users)

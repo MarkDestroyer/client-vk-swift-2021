@@ -46,6 +46,9 @@ class UserProfileViewController: UIViewController {
                     self.imageView.clipsToBounds = true
                     self.imageView.layer.borderWidth = 5
                     self.imageView.layer.borderColor = UIColor.black.cgColor
+                    let tap = UITapGestureRecognizer(target: self, action: #selector(viewOnTapped))
+                    imageView.addGestureRecognizer(tap)
+                    imageView.isUserInteractionEnabled = true
                 }
             } catch {
     // если произошла ошибка, выводим ее в консоль
@@ -53,6 +56,21 @@ class UserProfileViewController: UIViewController {
             }
         }
 
+    
+    private func springAnimationFriends() {
+        let animation = CASpringAnimation(keyPath: "transform.scale")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.stiffness = 1000
+        animation.mass = 3
+        animation.duration = 3
+        animation.beginTime = CACurrentMediaTime() + 1
+        imageView.layer.add(animation, forKey: nil)
+    }
+
+    @objc func viewOnTapped() {
+        springAnimationFriends()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

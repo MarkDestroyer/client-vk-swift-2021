@@ -17,7 +17,7 @@ protocol PersonDBProtocol {
 
 class PersonDB: PersonDBProtocol {
     
-    let config = Realm.Configuration(schemaVersion: 4)
+    let config = Realm.Configuration(schemaVersion: 5)
     lazy var mainRealm = try! Realm(configuration: config)
     
     var user: Array<Profile> = [Profile]()

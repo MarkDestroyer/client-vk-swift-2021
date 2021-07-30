@@ -1,0 +1,6 @@
+framework module Pods_client_server_1347 {
+  umbrella header "Pods-client-server-1347-umbrella.h"
+
+  export *
+  module * { export * }
+}

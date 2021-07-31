@@ -8,6 +8,7 @@
 import UIKit
 import RealmSwift
 import SDWebImage
+import Firebase
 
 class UserProfileViewController: UIViewController {
     
@@ -19,7 +20,7 @@ class UserProfileViewController: UIViewController {
     let userApi = UserAPI()
     var user: Array<Profile> = [Profile]()
     let personDB = PersonDB()
-    
+    let authService = Auth.auth()
     
     
     
@@ -71,6 +72,21 @@ class UserProfileViewController: UIViewController {
     @objc func viewOnTapped() {
         springAnimationFriends()
     }
+    
+    private func showLoginVC() {
+        guard let vc = storyboard?.instantiateViewController(identifier: "LoginViewController") else {return}
+        guard let window = self.view.window else {return}
+        window.rootViewController = vc
+    }
+    
+    
+    
+    @IBAction func SignOutAction(_ sender: Any) {
+        
+        try?authService.signOut()
+        showLoginVC()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

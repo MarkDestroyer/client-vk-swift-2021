@@ -6,13 +6,32 @@
 //
 
 import UIKit
+import Firebase
 
 class MenuViewController: UITabBarController {
-
+    let authService = Auth.auth()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.hidesBackButton = true
-       
-        
     }
+    
+    
+    private func showLoginVC() {
+        guard let vc = storyboard?.instantiateViewController(identifier: "LoginViewController") else {return}
+        guard let window = self.view.window else {return}
+        window.rootViewController = vc
+    }
+    
+    
+    
+    @IBAction func SignOutAction(_ sender: Any) {
+        
+        try?authService.signOut()
+        showLoginVC()
+    }
+    
+    
+            
+    
 }

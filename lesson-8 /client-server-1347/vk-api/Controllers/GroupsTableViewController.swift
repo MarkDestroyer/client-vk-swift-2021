@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import Firebase
 
 class GroupsViewController: UITableViewController {
     
@@ -16,6 +17,8 @@ class GroupsViewController: UITableViewController {
     var token: NotificationToken?
     let config = Realm.Configuration(schemaVersion: 4)
     lazy var mainRealm = try! Realm(configuration: config)
+    let authService = Auth.auth()
+    let ref = Database.database().reference(withPath: "groups") // ссылка на контейнер/папку в Database
     
     var groups: Results<GroupModel>? {
         didSet {
@@ -64,6 +67,31 @@ class GroupsViewController: UITableViewController {
         }
     }
     
+    @IBAction func addGroup(_ sender: Any) {
+        let alertVC = UIAlertController(title: "Enter a city name please", message: nil, preferredStyle: .alert)
+                
+            let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+                guard let textField = alertVC.textFields?.first,
+                      let name = textField.text else { return }
+                    
+                // 1
+                let city = GroupsFB(name: name)
+                // 2
+                let cityRef = self.ref.child(name.lowercased())
+                    
+                cityRef.setValue(city.toAnyObject())
+            }
+                
+            let cancelAction = UIAlertAction(title: "Cancel",
+                                                 style: .cancel)
+                
+            alertVC.addTextField()
+                
+            alertVC.addAction(saveAction)
+            alertVC.addAction(cancelAction)
+                
+            present(alertVC, animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,6 +105,22 @@ class GroupsViewController: UITableViewController {
             self.tableView.reloadData()
             print(group)
         }
+        
+        //1
+           ref.observe(.value, with: { snapshot in
+               
+               var cities: [GroupsFB] = []
+               // 2
+               for child in snapshot.children {
+                   if let snapshot = child as? DataSnapshot,
+                      let city = GroupsFB(snapshot: snapshot) {
+                          cities.append(city)
+                   }
+               }
+               // 3
+               //self.cities = cities
+               //self.tableView.reloadData()
+           })
         
     }
     

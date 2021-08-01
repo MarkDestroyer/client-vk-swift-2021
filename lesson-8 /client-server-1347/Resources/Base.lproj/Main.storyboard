@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--iMessanger X-->
+        <!--Menu View Controller-->
         <scene sceneID="tsO-QI-Yy7">
             <objects>
                 <tabBarController storyboardIdentifier="MenuViewController" id="pMp-rK-AB5" customClass="MenuViewController" customModule="client_server_1347" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="iMessanger X" id="XCP-35-fXk"/>
+                    <navigationItem key="navigationItem" id="XCP-35-fXk"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cyn-xg-JDz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -29,7 +29,7 @@
             </objects>
             <point key="canvasLocation" x="3976.811594202899" y="-1327.2321428571429"/>
         </scene>
-        <!--Friends View Controller-->
+        <!--Друзья-->
         <scene sceneID="EQw-Mq-7sd">
             <objects>
                 <tableViewController id="gcL-79-oBK" customClass="FriendsViewController" customModule="client_server_1347" customModuleProvider="target" sceneMemberID="viewController">
@@ -131,13 +131,13 @@
                             <outlet property="delegate" destination="gcL-79-oBK" id="kmn-cK-B6c"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="2Tf-xf-mGQ"/>
+                    <navigationItem key="navigationItem" title="Друзья" id="2Tf-xf-mGQ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSp-Fe-NZI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5110" y="-431"/>
+            <point key="canvasLocation" x="6020" y="-431"/>
         </scene>
-        <!--View Controller-->
+        <!--Новости-->
         <scene sceneID="UyF-9y-6bt">
             <objects>
                 <viewController id="iAZ-DG-Hpg" sceneMemberID="viewController">
@@ -159,13 +159,13 @@
                             <constraint firstItem="COj-dW-zbC" firstAttribute="centerX" secondItem="RBa-iG-Kct" secondAttribute="centerX" id="eId-3p-abA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="usE-xi-Ei1"/>
+                    <navigationItem key="navigationItem" title="Новости" id="usE-xi-Ei1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVa-6P-SuR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6020.289855072464" y="-1947.3214285714284"/>
         </scene>
-        <!--Groups View Controller-->
+        <!--Группы-->
         <scene sceneID="Y0i-xG-8OT">
             <objects>
                 <tableViewController id="joc-Ji-dU2" customClass="GroupsViewController" customModule="client_server_1347" customModuleProvider="target" sceneMemberID="viewController">
@@ -232,7 +232,7 @@
                             <outlet property="delegate" destination="joc-Ji-dU2" id="fK2-RD-IAi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="82Y-Kz-xKh">
+                    <navigationItem key="navigationItem" title="Группы" id="82Y-Kz-xKh">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="v3z-04-95A">
                             <connections>
                                 <action selector="addGroup:" destination="joc-Ji-dU2" id="7UE-gc-ddc"/>
@@ -244,7 +244,7 @@
             </objects>
             <point key="canvasLocation" x="6020.289855072464" y="-1230.1339285714284"/>
         </scene>
-        <!--User Profile View Controller-->
+        <!--Профиль-->
         <scene sceneID="Ubv-Lq-yIr">
             <objects>
                 <viewController id="dzS-z7-1GI" customClass="UserProfileViewController" customModule="client_server_1347" customModuleProvider="target" sceneMemberID="viewController">
@@ -358,7 +358,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" id="h7a-fK-0dW"/>
+                    <navigationItem key="navigationItem" title="Профиль" id="h7a-fK-0dW"/>
                     <connections>
                         <outlet property="bd" destination="dwz-PY-REB" id="M1q-Cj-kla"/>
                         <outlet property="imageView" destination="jaZ-tm-rSS" id="Lsg-9d-0MH"/>
@@ -368,7 +368,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUJ-DT-kfN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5110" y="434"/>
+            <point key="canvasLocation" x="6019" y="477"/>
         </scene>
         <!--Auth View Controller-->
         <scene sceneID="Xej-9t-fVJ">
@@ -519,7 +519,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HfA-Mx-5tK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4200" y="-431"/>
+            <point key="canvasLocation" x="5109" y="-431"/>
         </scene>
         <!--Профиль-->
         <scene sceneID="O1T-ei-bIp">
@@ -538,7 +538,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjZ-XD-gHj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4200" y="477"/>
+            <point key="canvasLocation" x="5110" y="477"/>
         </scene>
         <!--Группы-->
         <scene sceneID="rvH-78-c7Z">

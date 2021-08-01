@@ -104,7 +104,7 @@ class FriendsViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends?.count ?? 0
+        return friendsFB.count ?? 0
     }
     
     
@@ -113,9 +113,10 @@ class FriendsViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: FriendsTableViewCell.identifier, for: indexPath) as! FriendsTableViewCell
         
+        let friend = friendsFB[indexPath.row]
+        cell.nameLabel.text = ("\(friend.name) \(friend.lastname)")
         
-        
-        cell.loadData((friends?[indexPath.row])! )
+//        cell.loadData((friends?[indexPath.row])! )
         
         return cell
     }

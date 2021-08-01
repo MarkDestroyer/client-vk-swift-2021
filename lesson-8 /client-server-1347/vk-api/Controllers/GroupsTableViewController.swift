@@ -129,7 +129,7 @@ class GroupsViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groups?.count ?? 0
+        return groupsFB.count ?? 0
     }
     
     
@@ -137,11 +137,11 @@ class GroupsViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: GroupsTableViewCell.identifier, for: indexPath) as! GroupsTableViewCell
         
+        let group = groupsFB[indexPath.row]
+        cell.groupName.text = group.name
         
-        
-        
-        cell.loadData(groups![indexPath.row])
-        
+//        cell.loadData((friends?[indexPath.row])! )
+                
         return cell
     }
 }

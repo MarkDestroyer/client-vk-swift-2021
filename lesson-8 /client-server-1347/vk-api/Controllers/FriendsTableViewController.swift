@@ -7,6 +7,8 @@
 
 import UIKit
 import RealmSwift
+import Firebase
+
 
 class FriendsViewController: UITableViewController {
     
@@ -16,6 +18,8 @@ class FriendsViewController: UITableViewController {
     var token: NotificationToken?
     let config = Realm.Configuration(schemaVersion: 4)
     lazy var mainRealm = try! Realm(configuration: config)
+    let ref = Database.database().reference(withPath: "friends") // ссылка на контейнер/папку в Database
+    private var friendsFB = [FriendsFB]()
     
     var friends: Results<User3>? {
         didSet {
@@ -69,17 +73,32 @@ class FriendsViewController: UITableViewController {
         
         // tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
-        friendsAPI.getFriends3  { [weak self] users in
-            
-            guard let self = self else { return }
-            
-            //self.friends = self.mainRealm.objects(User3.self)
-            self.loadData()
-            self.tableView.reloadData()
-            print(users)
-            
-        }
         
+        friendsAPI.getFriends3  { [weak self] friends in
+            guard let self = self else {return}
+            
+            DispatchQueue.main.async {
+                for friend in friends {
+                    self.friendDB.add(friend)
+                    let friendFB = FriendsFB(name: friend.firstName, lastname: friend.lastName)
+                    let friendRef = self.ref.child(String(friend.id))
+                    friendRef.setValue(friendFB.toAnyObject())
+                }
+            }
+        }
+        self.ref.observe(.value, with: { snapshot in
+            var friends: [FriendsFB] = []
+            
+            for child in snapshot.children {
+                if let snapshot = child as? DataSnapshot,
+                   let friend = FriendsFB(snapshot: snapshot) {
+                    friends.append(friend)
+                }
+            }
+            
+            self.friendsFB = friends
+            self.tableView.reloadData()
+        })
     }
     
     // MARK: - Table view data source

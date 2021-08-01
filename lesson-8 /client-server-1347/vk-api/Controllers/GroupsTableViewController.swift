@@ -19,6 +19,7 @@ class GroupsViewController: UITableViewController {
     lazy var mainRealm = try! Realm(configuration: config)
     let authService = Auth.auth()
     let ref = Database.database().reference(withPath: "groups") // ссылка на контейнер/папку в Database
+    private var groupsFB = [GroupsFB]()
     
     var groups: Results<GroupModel>? {
         didSet {
@@ -97,30 +98,31 @@ class GroupsViewController: UITableViewController {
         
         //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
-        groupAPI.getGroupInfo  { [weak self] group in
+        groupAPI.getGroupInfo  { [weak self] groups in
+            guard let self = self else {return}
             
-            guard let self = self else { return }
-            
-            self.loadData()
-            self.tableView.reloadData()
-            print(group)
+            DispatchQueue.main.async {
+                for group in groups {
+                    self.groupDB.add(group)
+                    let friendFB = GroupsFB(name: group.name)
+                    //let friendRef = self.ref.child(String(group.groupId))
+                   // friendRef.setValue(friendFB.toAnyObject())
+                }
+            }
         }
-        
-        //1
-           ref.observe(.value, with: { snapshot in
-               
-               var cities: [GroupsFB] = []
-               // 2
-               for child in snapshot.children {
-                   if let snapshot = child as? DataSnapshot,
-                      let city = GroupsFB(snapshot: snapshot) {
-                          cities.append(city)
-                   }
-               }
-               // 3
-               //self.cities = cities
-               //self.tableView.reloadData()
-           })
+        self.ref.observe(.value, with: { snapshot in
+            var groups: [GroupsFB] = []
+            
+            for child in snapshot.children {
+                if let snapshot = child as? DataSnapshot,
+                   let group = GroupsFB(snapshot: snapshot) {
+                    groups.append(group)
+                }
+            }
+            
+            self.groupsFB = groups
+            self.tableView.reloadData()
+        })
         
     }
     

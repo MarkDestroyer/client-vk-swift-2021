@@ -132,6 +132,13 @@ class GroupsViewController: UITableViewController {
         return groupsFB.count ?? 0
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            let group = groupsFB[indexPath.row]
+            group.ref?.removeValue()
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         

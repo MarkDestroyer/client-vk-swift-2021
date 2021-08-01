@@ -107,6 +107,14 @@ class FriendsViewController: UITableViewController {
         return friendsFB.count ?? 0
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            let friend = friendsFB[indexPath.row]
+            friend.ref?.removeValue()
+        }
+    }
+
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

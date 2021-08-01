@@ -21,42 +21,42 @@ class UserProfileViewController: UIViewController {
     var user: Array<Profile> = [Profile]()
     let personDB = PersonDB()
     let authService = Auth.auth()
-    
-    
+    private var User = [UserFB]()
+    let ref = Database.database().reference(withPath: "userinfo") // ссылка на контейнер/папку в Database
     
     
     func loadData() {
-            do {
-                let realm = try Realm()
-                
-                let userinfo = realm.objects(Profile.self)
-                
-                self.user = Array(userinfo)
-                
-                for person in user {
-                    var firstname = person.firstName
-                    var lastname = person.lastName
-                    var fullname = ("\(firstname) \(lastname)")
-                    var town = person.home_town
-                    var birthday = person.bdate
-                    nameLabel.text = fullname
-                    townLabel.text = town
-                    bd.text = birthday
-                    imageView.sd_setImage(with:  URL(string: person.photo_max)!)
-                    self.imageView.layer.cornerRadius = 75;
-                    self.imageView.clipsToBounds = true
-                    self.imageView.layer.borderWidth = 5
-                    self.imageView.layer.borderColor = UIColor.black.cgColor
-                    let tap = UITapGestureRecognizer(target: self, action: #selector(viewOnTapped))
-                    imageView.addGestureRecognizer(tap)
-                    imageView.isUserInteractionEnabled = true
-                }
-            } catch {
-    // если произошла ошибка, выводим ее в консоль
-                print(error)
+        do {
+            let realm = try Realm()
+            
+            let userinfo = realm.objects(Profile.self)
+            
+            self.user = Array(userinfo)
+            
+            for person in user {
+                let firstname = person.firstName
+                let lastname = person.lastName
+                let fullname = ("\(firstname) \(lastname)")
+                let town = person.home_town
+                let birthday = person.bdate
+                nameLabel.text = fullname
+                townLabel.text = town
+                bd.text = birthday
+                imageView.sd_setImage(with:  URL(string: person.photo_max)!)
+                self.imageView.layer.cornerRadius = 75;
+                self.imageView.clipsToBounds = true
+                self.imageView.layer.borderWidth = 5
+                self.imageView.layer.borderColor = UIColor.black.cgColor
+                let tap = UITapGestureRecognizer(target: self, action: #selector(viewOnTapped))
+                imageView.addGestureRecognizer(tap)
+                imageView.isUserInteractionEnabled = true
             }
+        } catch {
+            // если произошла ошибка, выводим ее в консоль
+            print(error)
         }
-
+    }
+    
     
     private func springAnimationFriends() {
         let animation = CASpringAnimation(keyPath: "transform.scale")
@@ -68,7 +68,7 @@ class UserProfileViewController: UIViewController {
         animation.beginTime = CACurrentMediaTime() + 1
         imageView.layer.add(animation, forKey: nil)
     }
-
+    
     @objc func viewOnTapped() {
         springAnimationFriends()
     }
@@ -91,11 +91,32 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userApi.getUserInfo {[weak self] user in guard let self = self else { return }
-        DispatchQueue.main.async {
-                self.loadData()
-                self.personDB.read()
-            }
+        userApi.getUserInfo {[weak self] userinfo in
+            guard let self = self else {return}
+            
+            DispatchQueue.main.async {
+                
+                self.personDB.add(userinfo)
+                let friendFB = UserFB(name: userinfo.firstName, lastname: userinfo.lastName)
+                let friendRef = self.ref.child(String(userinfo.id))
+                friendRef.setValue(friendFB.toAnyObject())
+            
         }
+        self.ref.observe(.value, with: { snapshot in
+            var info: [UserFB] = []
+            
+            for child in snapshot.children {
+                if let snapshot = child as? DataSnapshot,
+                   let profile = UserFB(snapshot: snapshot) {
+                    info.append(profile)
+                    self.nameLabel.text = ("\(profile.name) \(profile.lastname)")
+                }
+            }
+            
+            self.User = info
+        })
+        
     }
+}
+
 }

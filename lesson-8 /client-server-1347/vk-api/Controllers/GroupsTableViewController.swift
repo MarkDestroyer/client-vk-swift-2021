@@ -68,21 +68,21 @@ class GroupsViewController: UITableViewController {
     }
     
     @IBAction func addGroup(_ sender: Any) {
-        let alertVC = UIAlertController(title: "Enter a city name please", message: nil, preferredStyle: .alert)
+        let alertVC = UIAlertController(title: "Добавить группу", message: nil, preferredStyle: .alert)
                 
-            let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+            let saveAction = UIAlertAction(title: "Сохранить", style: .default) { _ in
                 guard let textField = alertVC.textFields?.first,
                       let name = textField.text else { return }
                     
                 // 1
-                let city = GroupsFB(name: name)
+                let group = GroupsFB(name: name)
                 // 2
-                let cityRef = self.ref.child(name.lowercased())
+                let groupRef = self.ref.child(name.lowercased())
                     
-                cityRef.setValue(city.toAnyObject())
+                groupRef.setValue(group.toAnyObject())
             }
                 
-            let cancelAction = UIAlertAction(title: "Cancel",
+            let cancelAction = UIAlertAction(title: "Отмена",
                                                  style: .cancel)
                 
             alertVC.addTextField()

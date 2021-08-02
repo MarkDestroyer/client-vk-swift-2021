@@ -17,7 +17,7 @@ protocol FriendsDBProtocol {
 
 class FriendDB: FriendsDBProtocol {
     
-    let config = Realm.Configuration(schemaVersion: 3)
+    let config = Realm.Configuration(schemaVersion: 5)
     lazy var mainRealm = try! Realm(configuration: config)
     var user: Array<User3> = [User3]()
     

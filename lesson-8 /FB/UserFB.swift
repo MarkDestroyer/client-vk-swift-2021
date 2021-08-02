@@ -14,13 +14,17 @@ class UserFB {
     let lastname: String
     let ref: DatabaseReference?
     let image: String
+    let bd: String
+    let town: String
     
-    init(name: String, lastname: String, image: String) {
+    init(name: String, lastname: String, image: String, bd: String, town: String) {
         // 2
         self.ref = nil
         self.name = name
         self.lastname = lastname
         self.image = image
+        self.bd = bd
+        self.town = town
     }
     
     init?(snapshot: DataSnapshot) {
@@ -29,6 +33,8 @@ class UserFB {
             let value = snapshot.value as? [String: Any],
             let lastname = value["lastname"] as? String,
             let image = value["image"] as? String,
+            let bd = value["bd"] as? String,
+            let town = value["town"] as? String,
             let name = value["name"] as? String else {
                 return nil
         }
@@ -37,6 +43,8 @@ class UserFB {
         self.name = name
         self.lastname = lastname
         self.image = image
+        self.bd = bd
+        self.town = town
     }
     
     func toAnyObject() -> [String: Any] {
@@ -44,7 +52,9 @@ class UserFB {
         return [
             "name": name,
             "lastname": lastname,
-            "image": image
+            "image": image,
+            "bd": bd,
+            "town": town
         ]
     }
 }

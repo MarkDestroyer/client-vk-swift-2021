@@ -98,19 +98,21 @@ class UserProfileViewController: UIViewController {
             DispatchQueue.main.async {
                 
                 self.personDB.add(userinfo)
-                let friendFB = UserFB(name: userinfo.firstName, lastname: userinfo.lastName, image: userinfo.photo_max)
+                let friendFB = UserFB(name: userinfo.firstName, lastname: userinfo.lastName, image: userinfo.photo_max, bd: userinfo.bdate, town: userinfo.home_town)
                 let friendRef = self.ref.child(String(userinfo.id))
                 friendRef.setValue(friendFB.toAnyObject())
             
         }
             self.ref.observe(.value, with: { [self] snapshot in
             var info: [UserFB] = []
-                 
+            
             for child in snapshot.children {
                 if let snapshot = child as? DataSnapshot,
                    let profile = UserFB(snapshot: snapshot) {
                     info.append(profile)
                     self.nameLabel.text = ("\(profile.name) \(profile.lastname)")
+                    self.bd.text = profile.bd
+                    self.townLabel.text = profile.town
                     self.imageView.sd_setImage(with:  URL(string: profile.image)!)
                     self.imageView.layer.cornerRadius = 75;
                     self.imageView.clipsToBounds = true

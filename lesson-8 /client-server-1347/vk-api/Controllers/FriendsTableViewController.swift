@@ -80,7 +80,7 @@ class FriendsViewController: UITableViewController {
             DispatchQueue.main.async {
                 for friend in friends {
                     self.friendDB.add(friend)
-                    let friendFB = FriendsFB(name: friend.firstName, lastname: friend.lastName)
+                    let friendFB = FriendsFB(name: friend.firstName, lastname: friend.lastName, image: friend.photo_max)
                     let friendRef = self.ref.child(String(friend.id))
                     friendRef.setValue(friendFB.toAnyObject())
                 }
@@ -125,7 +125,12 @@ class FriendsViewController: UITableViewController {
         cell.nameLabel.text = ("\(friend.name) \(friend.lastname)")
         
 //        cell.loadData((friends?[indexPath.row])! )
-        
+        cell.self.FriendImage!.sd_setImage(with:  URL(string: friend.image!)!)
+        cell.self.FriendImage.layer.cornerRadius = 50;
+        cell.self.FriendImage.clipsToBounds = true
+        cell.self.FriendImage.layer.borderWidth = 5
+        cell.self.FriendImage.layer.borderColor = UIColor.black.cgColor
+
         return cell
     }
     

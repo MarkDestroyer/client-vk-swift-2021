@@ -68,31 +68,32 @@ class GroupsViewController: UITableViewController {
         }
     }
     
-    @IBAction func addGroup(_ sender: Any) {
-        let alertVC = UIAlertController(title: "Добавить группу", message: nil, preferredStyle: .alert)
-                
-            let saveAction = UIAlertAction(title: "Сохранить", style: .default) { _ in
-                guard let textField = alertVC.textFields?.first,
-                      let name = textField.text else { return }
-                    
-                // 1
-                let group = GroupsFB(name: name)
-                // 2
-                let groupRef = self.ref.child(name.lowercased())
-                    
-                groupRef.setValue(group.toAnyObject())
-            }
-                
-            let cancelAction = UIAlertAction(title: "Отмена",
-                                                 style: .cancel)
-                
-            alertVC.addTextField()
-                
-            alertVC.addAction(saveAction)
-            alertVC.addAction(cancelAction)
-                
-            present(alertVC, animated: true, completion: nil)
-    }
+//    @IBAction func addGroup(_ sender: Any) {
+//        let alertVC = UIAlertController(title: "Добавить группу", message: nil, preferredStyle: .alert)
+//
+//            let saveAction = UIAlertAction(title: "Сохранить", style: .default) { _ in
+//                guard let textField = alertVC.textFields?.first,
+//                      let name = textField.text else { return }
+//
+//                // 1
+//                let group = GroupsFB(name: name)
+//                // 2
+//                let groupRef = self.ref.child(name.lowercased())
+//
+//                groupRef.setValue(group.toAnyObject())
+//            }
+//
+//            let cancelAction = UIAlertAction(title: "Отмена",
+//                                                 style: .cancel)
+//
+//            alertVC.addTextField()
+//
+//            alertVC.addAction(saveAction)
+//            alertVC.addAction(cancelAction)
+//
+//            present(alertVC, animated: true, completion: nil)
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -104,9 +105,9 @@ class GroupsViewController: UITableViewController {
             DispatchQueue.main.async {
                 for group in groups {
                     self.groupDB.add(group)
-                    let friendFB = GroupsFB(name: group.name)
-                    //let friendRef = self.ref.child(String(group.groupId))
-                   // friendRef.setValue(friendFB.toAnyObject())
+                    let friendFB = GroupsFB(name: group.name, image: group.photo_max)
+                    let friendRef = self.ref.child(String(group.groupId))
+                    friendRef.setValue(friendFB.toAnyObject())
                 }
             }
         }
@@ -146,7 +147,11 @@ class GroupsViewController: UITableViewController {
         
         let group = groupsFB[indexPath.row]
         cell.groupName.text = group.name
-        
+        cell.self.groupImage!.sd_setImage(with:  URL(string: group.image)!)
+        cell.self.groupImage.layer.cornerRadius = 50;
+        cell.self.groupImage.clipsToBounds = true
+        cell.self.groupImage.layer.borderWidth = 5
+        cell.self.groupImage.layer.borderColor = UIColor.black.cgColor
 //        cell.loadData((friends?[indexPath.row])! )
                 
         return cell

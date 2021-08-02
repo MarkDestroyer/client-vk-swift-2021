@@ -16,5 +16,7 @@ target 'client-server-1347' do
   pod 'ReachabilitySwift'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
-  
+  pod 'Firebase/Storage'
+  pod 'FirebaseUI/Storage'
+ 
 end

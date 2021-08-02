@@ -13,12 +13,14 @@ class UserFB {
     let name: String
     let lastname: String
     let ref: DatabaseReference?
+    let image: String
     
-    init(name: String, lastname: String) {
+    init(name: String, lastname: String, image: String) {
         // 2
         self.ref = nil
         self.name = name
         self.lastname = lastname
+        self.image = image
     }
     
     init?(snapshot: DataSnapshot) {
@@ -26,6 +28,7 @@ class UserFB {
         guard
             let value = snapshot.value as? [String: Any],
             let lastname = value["lastname"] as? String,
+            let image = value["image"] as? String,
             let name = value["name"] as? String else {
                 return nil
         }
@@ -33,13 +36,15 @@ class UserFB {
         self.ref = snapshot.ref
         self.name = name
         self.lastname = lastname
+        self.image = image
     }
     
     func toAnyObject() -> [String: Any] {
         // 4
         return [
             "name": name,
-            "lastname": lastname
+            "lastname": lastname,
+            "image": image
         ]
     }
 }

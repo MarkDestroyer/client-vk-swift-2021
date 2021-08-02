@@ -18,7 +18,7 @@ class FriendsViewController: UITableViewController {
     var token: NotificationToken?
     let config = Realm.Configuration(schemaVersion: 4)
     lazy var mainRealm = try! Realm(configuration: config)
-    let ref = Database.database().reference(withPath: "friends") // ссылка на контейнер/папку в Database
+    let ref = Database.database().reference(withPath: "userinfo/friends") // ссылка на контейнер/папку в Database
     private var friendsFB = [FriendsFB]()
     
     var friends: Results<User3>? {

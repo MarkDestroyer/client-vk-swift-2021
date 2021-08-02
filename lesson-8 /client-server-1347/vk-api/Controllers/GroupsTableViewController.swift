@@ -17,8 +17,7 @@ class GroupsViewController: UITableViewController {
     var token: NotificationToken?
     let config = Realm.Configuration(schemaVersion: 4)
     lazy var mainRealm = try! Realm(configuration: config)
-    let authService = Auth.auth()
-    let ref = Database.database().reference(withPath: "groups") // ссылка на контейнер/папку в Database
+    let ref = Database.database().reference(withPath: "userinfo/groups") // ссылка на контейнер/папку в Database
     private var groupsFB = [GroupsFB]()
     
     var groups: Results<GroupModel>? {
@@ -152,8 +151,8 @@ class GroupsViewController: UITableViewController {
         cell.self.groupImage.clipsToBounds = true
         cell.self.groupImage.layer.borderWidth = 5
         cell.self.groupImage.layer.borderColor = UIColor.black.cgColor
-//        cell.loadData((friends?[indexPath.row])! )
-                
+
+        
         return cell
     }
 }

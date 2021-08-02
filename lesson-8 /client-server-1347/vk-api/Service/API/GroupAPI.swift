@@ -25,7 +25,7 @@ final class GroupAPI {
         let method = "/groups.get"
         
         let parameters: Parameters = [
-            "access_token": Session.shared.token,
+            "access_token": token,
             "group_id": cliendId,
             "extended": "1",
             "fields": "photo_max",

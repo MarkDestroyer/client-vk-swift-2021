@@ -23,7 +23,7 @@ class UserProfileViewController: UIViewController {
     let personDB = PersonDB()
     let authService = Auth.auth()
     private var User = [UserFB]()
-    let ref = Database.database().reference(withPath: "userinfo") // ссылка на контейнер/папку в Database
+    let ref = Database.database().reference(withPath: "userinfo/user") // ссылка на контейнер/папку в Database
     
     
     func loadData() {

@@ -9,7 +9,6 @@ import UIKit
 import RealmSwift
 import Firebase
 
-
 class FriendsViewController: UITableViewController {
     
     let friendsAPI = FriendsAPI()
@@ -73,7 +72,6 @@ class FriendsViewController: UITableViewController {
         
         // tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
-        
         friendsAPI.getFriends3  { [weak self] friends in
             guard let self = self else {return}
             
@@ -116,15 +114,12 @@ class FriendsViewController: UITableViewController {
     }
 
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: FriendsTableViewCell.identifier, for: indexPath) as! FriendsTableViewCell
         
         let friend = friendsFB[indexPath.row]
         cell.nameLabel.text = ("\(friend.name) \(friend.lastname)")
-        
-//        cell.loadData((friends?[indexPath.row])! )
         cell.self.FriendImage!.sd_setImage(with:  URL(string: friend.image!)!)
         cell.self.FriendImage.layer.cornerRadius = 50;
         cell.self.FriendImage.clipsToBounds = true

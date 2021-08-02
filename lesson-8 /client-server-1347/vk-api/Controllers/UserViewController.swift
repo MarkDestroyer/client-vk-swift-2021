@@ -105,7 +105,7 @@ class UserProfileViewController: UIViewController {
         }
             self.ref.observe(.value, with: { [self] snapshot in
             var info: [UserFB] = []
-            
+                 
             for child in snapshot.children {
                 if let snapshot = child as? DataSnapshot,
                    let profile = UserFB(snapshot: snapshot) {

@@ -1,4 +1,3 @@
-//
 //  GroupAPI.swift
 //  client-server-1347
 //
@@ -9,15 +8,7 @@ import Foundation
 import Alamofire
 import DynamicJSON
 
-class GroupProfile {
-    let id: Int?
-    let screenName: String?
-    
-    init(json: JSON) {
-        self.id = json.number?.intValue
-        self.screenName = json.screen_name.string
-    }
-}
+
 
 final class GroupAPI {
     
@@ -27,15 +18,20 @@ final class GroupAPI {
     let version = "5.21"
     
     //DynamicJSON
-    func getGroupInfo(groupId:String, completion: @escaping([GroupProfile])->()) {
+    func getGroupInfo(completion: @escaping([GroupProfile])->()) {
         
         let method = "/groups.get"
         
         let parameters: Parameters = [
             "access_token": Session.shared.token,
-                          "group_id": groupId,
-                          "fields": "crop_photo,screen_name,city,members_count,site",
-                          "v": version]
+            "group_id": cliendId,
+            "extended": "1",
+            "fields": "photo_50",
+            "count": "45",
+            "v": version,
+        ]
+       
+        
         
         let url = baseUrl + method
         
@@ -46,9 +42,9 @@ final class GroupAPI {
             
             guard let items = JSON(data).response.items.array else { return }
             
-            let group = items.map { GroupProfile(json: $0)}
+           let group = items.map { GroupProfile(json: $0)}
             
-            completion(group)
+           completion(group)
             
         }
     }

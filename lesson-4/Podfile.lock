@@ -1,0 +1,42 @@
+PODS:
+  - Alamofire (5.4.3)
+  - DynamicJSON (2.0.2)
+  - Realm (10.10.0):
+    - Realm/Headers (= 10.10.0)
+  - Realm/Headers (10.10.0)
+  - RealmSwift (10.10.0):
+    - Realm (= 10.10.0)
+  - ShimmerSwift (2.1.1)
+  - SkeletonView (1.21.1)
+  - SwiftKeychainWrapper (4.0.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - DynamicJSON
+  - RealmSwift
+  - ShimmerSwift
+  - SkeletonView
+  - SwiftKeychainWrapper
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - DynamicJSON
+    - Realm
+    - RealmSwift
+    - ShimmerSwift
+    - SkeletonView
+    - SwiftKeychainWrapper
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  DynamicJSON: fc0c5a82980ff8aa956156f04d84fcdb2822e875
+  Realm: f501df41a4222c67850c77cf135d472192ecf294
+  RealmSwift: c69aadfc7db0d60075178d037c2f34ada73d5201
+  ShimmerSwift: f7ed2daf9c246de8299dfd9e12c6ab465cba9842
+  SkeletonView: 5b79eb6e09d2a7f3d2e620d34ff97510a1c763e9
+  SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
+
+PODFILE CHECKSUM: be62e7168ff1e230db10f12908900397500401c3
+
+COCOAPODS: 1.10.1

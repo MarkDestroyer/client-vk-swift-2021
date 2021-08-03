@@ -9,18 +9,6 @@ import Foundation
 import Alamofire
 import DynamicJSON
 
-class UserProfile {
-    
-    let firstName: String?
-    
-   
-    
-    init(json: JSON) { 
-        self.firstName = json.id.string //json["first_name"] as! String
-    }
-}
-
-
 
 final class UserAPI {
     
@@ -30,27 +18,30 @@ final class UserAPI {
     let version = "5.31"
     
     //DynamicJSON
-    func getUserInfo(completion: @escaping(UserProfile)->()) {
+    func getUserInfo(completion: @escaping(Profile)->()) {
         
         let method = "/users.get"
         
         let parameters: Parameters = [
             "access_token": Session.shared.token,
             "user_id": cliendId,
-            "fields": "status,city,career,counters,has_photo,crop_photo,last_seen,online",
+            "extended": "1",
+            "fields": "first_name, last_name, photo_50 ",
             "v": version]
         
         let url = baseUrl + method
         
         AF.request(url, method: .get, parameters: parameters).responseData { response in
             
+        
             guard let data = response.data else { return }
             print(data.prettyJSON as Any)
+
+            guard let items = JSON(data).response.array else { return }
+            let profile = items.map { Profile(json: $0)}
             
-            
-            let user = UserProfile(json: JSON(data))
-            
-            completion(user)
+            guard let firstUser = profile.first else {return}
+            completion(firstUser)
             
         }
     }
